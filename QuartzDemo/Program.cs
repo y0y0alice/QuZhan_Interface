@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuartzDemo.QuartzJobs;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace QuartzDemo
 
                 x.EnablePauseAndContinue();
             });
+
+            //LwJob lw = new LwJob();
+            //lw.taskDetail();
         }
     }
 }

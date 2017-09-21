@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IWorkFlow.DataBase</name>
+    </assembly>
+    <members>
+        <member name="T:IWorkFlow.DataBase.DataRowMap">
+            <summary>
+            单行非影射类数据添加与更新
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DataFieldAttribute.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            映射对象成员属性
+            </summary>
+            <param name="fieldName">字段名</param>
+            <param name="tableName">表名</param>
+            <param name="isEdit">当此值为false时，则在数据插入及更新时不进行此成员的相应操作(例如自增主键应设置为false)，默认为true</param>
+        </member>
+        <member name="P:IWorkFlow.DataBase.DataFieldAttribute.FieldType">
+            <summary>
+            字段类型
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.DataBase.DataFieldAttribute.FieldLength">
+            <summary>
+            字段长度
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.DataBase.DataFieldAttribute.Description">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.DataBase.DbFactory.DataBaseType">
+            <summary>
+            数据类型：MsSql || Oracle
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.#ctor(System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.GetTableList">
+            <summary>
+            获取table的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.GetViewList">
+            <summary>
+            获取视图列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.GetAllFieldInfo(System.String)">
+            <summary>
+            获得指定表的字段列表
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.DeleteField(System.String,System.String)">
+            <summary>
+            删除字段
+            </summary>
+            <param name="tablename"></param>
+            <param name="column"></param>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryObject``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            查询返回单个影射类对象
+            </summary>
+            <typeparam name="T">影射对象类型</typeparam>
+            <param name="obj">影射对象实例，需要继承QueryInfo或者IQueryInfo</param>
+            <param name="tran">事务，可以为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryObject``1(System.String,System.Data.IDbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            根据sql查询对象，也可以直接输入查询条件，就是Condition
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sql"></param>
+            <param name="tran"></param>
+            <param name="dbParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryObject``1(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            兼容性函数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sql"></param>
+            <param name="dbParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryObject``1(System.Collections.Generic.List{System.String},System.Data.IDbTransaction)">
+            <summary>
+            根据指定的条件集合查询单个影射对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="condition">条件集合</param>
+            <param name="tran">可选的事务对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryList``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            查询返回影射类对象列表
+            </summary>
+            <typeparam name="T">影射对象类型</typeparam>
+            <param name="obj">影射对象实例，需要继承QueryInfo或者IQueryInfo</param>
+            <param name="tran">事务，可以为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryList``1(System.String,System.Data.IDbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            根据sql查询对象，也可以直接输入查询条件，就是Condition
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sql"></param>
+            <param name="tran"></param>
+            <param name="dbParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryList``1(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            兼容性函数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sql"></param>
+            <param name="dbParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryCount``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            查询出总行数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="tran"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.InsertT(System.Object,System.Data.IDbTransaction)">
+            <summary>
+            不带尖括号泛型插入
+            </summary>
+            <param name="obj">影射对象实例，需要继承QueryInfo或者IQueryInfo</param>
+            <param name="tran">事务</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.Insert``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            插入 数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="obj">数据对象</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.UpdateT(System.Object,System.Data.IDbTransaction)">
+            <summary>
+            更新 数据
+            </summary>
+            <param name="obj">数据对象</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.Update``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            更新 数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="obj">数据对象</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.UpdateOrInsert``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            更新或插入数据，如果根据查询条件查出了数据，则更新，否则插入
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="obj">数据对象</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.UpdateGroup(System.Object[])">
+            <summary>
+            不同类型对象实例组同时更新，此更新内置事务
+            </summary>
+            <param name="mapObjs">对象组实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.DeleteT(System.Object,System.Data.IDbTransaction)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="obj">数据对象</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.Delete``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            删除数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="obj">数据对象</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.Delete``1(System.String,System.Data.IDbTransaction)">
+            <summary>
+            删除数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="condition">查询条件</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.Delete``1(System.Collections.Generic.List{System.String},System.Data.IDbTransaction)">
+            <summary>
+            删除数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="condition">查询条件</param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.DeleteGroup(System.Object[])">
+            <summary>
+            不同类型对象实例组同时删除，此更新内置事务
+            </summary>
+            <param name="mapObjs">对象组实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.SaveGroup(System.Object[])">
+            <summary>
+            保存对像，如有相应行则保存，没有则添加，同时将数据放于同一事务中
+            </summary>
+            <param name="mapObjs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryTableName``1(``0)">
+            <summary>
+            查询实体对象对应的表名
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryKeyMaxValue``1(``0,System.Data.IDbTransaction)">
+            <summary>
+            取得影射类型主键最大值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="tran">事务，默认为null</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.QueryKeyMaxValue(IWorkFlow.DataBase.DataRowMap,System.Data.IDbTransaction)">
+            <summary>
+            取得DataRowMap类型主键最大值
+            </summary>
+            <param name="drm"></param>
+            <param name="tran">事务</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.ExecuteScalar(System.String,System.Data.IDbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            查询数据并获得结果
+            </summary>
+            <param name="sql"></param>
+            <param name="tran"></param>
+            <param name="dbParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.ExecuteNonQuery(System.String,System.Data.IDbTransaction,System.Data.Common.DbParameter[])">
+            <summary>
+            执行sql
+            </summary>
+            <param name="sql"></param>
+            <param name="tran"></param>
+            <param name="dbParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.DataBase.DbFactory.GetTableInfo(System.String)">
+            <summary>
+            取得表对象字段及类型数组列表
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:IWorkFlow.DataBase.MsSqlDataBase.Connection">
+            <summary>
+            使用新的数据库缓存池,加入超时机制，超时1分钟的连接自动会关闭
+            </summary>
+        </member>
+    </members>
+</doc>

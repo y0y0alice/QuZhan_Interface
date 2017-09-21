@@ -54,3 +54,10 @@ D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\Quartz.xml
 D:\软件项目\QuartzOA\QuartzDemo\obj\Debug\QuartzDemo.csprojResolveAssemblyReference.cache
 D:\软件项目\QuartzOA\QuartzDemo\obj\Debug\QuartzDemo.exe
 D:\软件项目\QuartzOA\QuartzDemo\obj\Debug\QuartzDemo.pdb
+D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\IWorkFlow.DataBase.dll
+D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\IWorkFlow.DataBase.pdb
+D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\IWorkFlow.DataBase.xml
+D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\IWorkFlow.Host.dll
+D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\IWorkFlow.Host.pdb
+D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\IWorkFlow.Host.xml
+D:\软件项目\QuartzOA\QuartzDemo\bin\Debug\Newtonsoft.Json.dll

@@ -1,0 +1,12 @@
+﻿{
+  "signCode": "d6d4d537fe",
+  "useMobileNotification": "true",
+  "useProxy": "false",
+  "proxyDir": "c:\\proxy\\",
+  "proxyReadtimeRelay": "40",
+  "proxyAddr": "http://localhost",
+  "TempDir": "c:\\NHEPB\\TempDir\\",
+  "FileDir": "c:\\NHEPB\\FileDir\\",
+  "FileModelDir": "officeFileModel\\",
+  "mydata": "Data Source=.;Initial Catalog=LLL;User ID=sa;Password=1;"
+}

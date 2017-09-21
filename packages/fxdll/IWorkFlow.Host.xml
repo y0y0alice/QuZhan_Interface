@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IWorkFlow.Host</name>
+    </assembly>
+    <members>
+        <member name="P:IWorkFlow.Host.BaseDataHandler.Key">
+            <summary>
+            键值，不能重复！！
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.Host.BaseDataHandler.anonymity">
+            <summary>
+            是否支持匿名访问
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Host.BaseDataHandler.JudgePrivilege(System.String)">
+            <summary>
+            强制权限判断，准备作废
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.BaseDataHandler.run(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32@,System.Web.HttpContext)">
+            <summary>
+            执行请求处理程序
+            </summary>
+            <param name="type"></param>
+            <param name="sid"></param>
+            <param name="queryString"></param>
+            <param name="StatusCode"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:IWorkFlow.Host.BaseDataHandler.ALLDataActions">
+            <summary>
+            API标签
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.Host.DataActionAttribute.Authorize">
+            <summary>
+            是否进行验证,设置为true则这个Api需要进行验证
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.Host.DataActionAttribute.users">
+            <summary>
+            可访问者
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Host.ApiPrivilegeR">
+            <summary>
+            Api验证实体
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.HttpProxyWatcher.actionDefault">
+            <summary>
+            默认的监听处理器
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.HttpProxyWatcherAsync.actionDefault">
+            <summary>
+            默认的监听处理器
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Host.PackResult.LoadCommonFile(System.String,System.Action{System.String},System.Action{System.String})">
+            <summary>
+            准备作废！！
+            </summary>
+            <param name="path"></param>
+            <param name="failurefunc"></param>
+            <param name="successfunc"></param>
+        </member>
+        <member name="M:IWorkFlow.Host.security.resumeFromDB">
+            <summary>
+            启动的时候从相关存储介质恢复session
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Host.security.VerifyServer">
+            <summary>
+            检测服务器是否经过授权
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:IWorkFlow.Host.security.userlist">
+            <summary>
+            框架的会话集合，保存会话id和用户的关系
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.captchaList">
+            <summary>
+            框架维护的验证码集合，用于验证码验证
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Host.security.session">
+            <summary>
+            用户会话信息
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.userid">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.ip">
+            <summary>
+            用户ip
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.logintime">
+            <summary>
+            用户登录开始时刻
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.lastActionTime">
+            <summary>
+            用户最近访问时刻
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.num">
+            <summary>
+            会话序号
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.appid">
+            <summary>
+            移动设备id
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.isSystem">
+            <summary>
+            是否管理员
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.security.session.noNeedLogin">
+            <summary>
+            是否免登陆
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.Host.security.SessionTimeOut">
+            <summary>
+            会话过期时间
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.Host.security.SecurityInfo">
+            <summary>
+            服务器安全信息
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Host.NoAuthAttribute">
+            <summary>
+            允许匿名访问单个方法
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Host.Utility.config">
+            <summary>
+            新的配置文件方式，读取config\ServerConfig.json的各项配置项
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.config.get(System.String)">
+            <summary>
+            获取设置项
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.config.getPath(System.String)">
+            <summary>
+            根据key值获取指定配置项所表示的绝对路径
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:IWorkFlow.Host.Utility.Database">
+            <summary>
+            取得默认的数据访问对象，根据config\ServerConfig.json里的mydata或myoralce设定的连接字符串
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.Host.Utility.dbs">
+            <summary>
+            框架维护的数据库集合
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.getDb(System.String,IWorkFlow.DataBase.DPointDbType)">
+             <summary>
+            根据指定的数据库连接字符串键获取一个数据库实例
+             </summary>
+             <param name="connKey">在配置文件中的配置项key</param>
+             <param name="dbType">数据库类型，默认为创建sqlserver数据库</param>
+             <returns>数据库操作对象实例</returns>
+        </member>
+        <!-- 对于成员“M:IWorkFlow.Host.Utility.MaxValue``1(System.String,System.Int32,System.Data.IDbTransaction)”忽略有格式错误的 XML 注释 -->
+        <member name="P:IWorkFlow.Host.Utility.RootPath">
+            <summary>
+            网站根目录
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.SaveFile(System.String,System.String)">
+            <summary>
+            保存文件，支持绝对路径和相对路径
+            </summary>
+            <param name="file">文件名及路径</param>
+            <param name="content">内容</param>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.AppendFile(System.String,System.String)">
+            <summary>
+            扩展网站目录下文件，支持绝对路径和相对路径
+            </summary>
+            <param name="file">文件名及路径</param>
+            <param name="content">追加内容</param>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.LoadFile(System.String)">
+            <summary>
+            读取网站目录下文件，支持绝对路径和相对路径
+            </summary>
+            <param name="file">文件名及路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.LoadJson``1(System.String)">
+            <summary>
+            读取json文件，并序列化
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="file">文件路径，可以是绝对路径或相对路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.saveJson(System.String,System.Object)">
+            <summary>
+            将对象序列化保存到指定路径
+            </summary>
+            <param name="file">文件名及路径，可以是绝对路径，或是相对路径</param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.JsonMsg(System.Boolean,System.String)">
+            <summary>
+            返回信息给客户端显示，有成功与否
+            </summary>
+            <param name="success"></param>
+            <param name="smsg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.JsonMsg(System.String)">
+            <summary>
+            返回信息给客户端显示，表示成功
+            </summary>
+            <param name="message"></param>
+            <returns></returns>    
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.JsonErrMsg(System.String)">
+            <summary>
+            返回信息给客户端错误显示
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.JsonResult(System.Boolean,System.String,System.Object)">
+            <summary>
+            返回数据
+            </summary>
+            <param name="success">成功或失败</param>
+            <param name="msg">消息</param>
+            <param name="data">数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.WriteLog(System.String,System.String,System.Int32)">
+            <summary>
+            写日志
+            </summary>
+            <param name="msg">日志内容</param>
+            <param name="loggerName">日志项名称</param>
+            <param name="level">FATAL(5),ERROR(4), WARN(3), INFO(2),DEBUG(1)</param>
+        </member>
+        <member name="F:IWorkFlow.Host.Utility.logMsg">
+            <summary>
+            写日志
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:IWorkFlow.Host.Utility.GetExceptionLog(System.Exception,System.String,System.Boolean)">
+            <summary>
+            写错误日志
+            </summary>
+            <param name="ex"></param>
+            <param name="source"></param>
+            <param name="isInnerException">是否内部错误</param>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.Host.ConvertHelper`1">
+            <summary>
+            转换类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:IWorkFlow.Host.ConvertHelper`1.DataTableToList(System.Data.DataTable)">
+            <summary>  
+            DataTable转化为List
+            </summary>  
+            <param name="dt"></param>  
+            <returns></returns>  
+        </member>
+        <member name="T:IWorkFlow.Host.EncryptAndDecrypt">
+            <summary>
+            给字符串加上加密解密的方法
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Host.EncryptAndDecrypt.Encrypt(System.String)">
+            <summary>
+            加密
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Host.EncryptAndDecrypt.Decrypt(System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,103 @@
+CREATE TABLE T_OA_JKFW_YBJSRWLB  (
+  XTBH                VARCHAR(50),
+  USERID              VARCHAR(50),
+  YWBH                VARCHAR(50),
+  SWLX                VARCHAR(50),
+  SWBT                VARCHAR(1000),
+  SWLCBH              VARCHAR(50),
+  SWZT                VARCHAR(2),
+  FKYJ                VARCHAR(4000),
+  BZ                  VARCHAR(4000),
+  CJR                 VARCHAR(50),
+  CJSJ                DATETIME,
+  XGR                 VARCHAR(50),
+  XGSJ                DATETIME,
+  ORGID               VARCHAR(50),
+  CONSTRAINT PK_T_OA_JKFW_YBJSRWLB PRIMARY KEY NONCLUSTERED(YWBH)
+)
+GO
+
+
+declare @CmtT_OA_JKFW_YBJSRWLB varchar(128)
+select @CmtT_OA_JKFW_YBJSRWLB = user_name()
+execute sp_addextendedproperty 'MS_Description',
+'已被接收任务列表',
+'user', @CmtT_OA_JKFW_YBJSRWLB, 'table', 'T_OA_JKFW_YBJSRWLB'
+GO
+execute sp_addextendedproperty 'MS_Description',
+'序号',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'XH'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'系统编号',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'XTBH'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'收文用户ID',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'USERID'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'业务编号',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'YWBH'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'收文类型',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWLX'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'收文标题',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWBT'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'收文流程编号',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWLCBH'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'收文状态',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWZT'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'反馈意见',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'FKYJ'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'备注',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'BZ'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'创建人',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'CJR'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'创建时间',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'CJSJ'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'修改人',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'XGR'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'修改时间',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'XGSJ'
+GO
+
+execute sp_addextendedproperty 'MS_Description',
+'组织编号',
+ 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'ORGID'
+GO
+
+
+
