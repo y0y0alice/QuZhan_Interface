@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SW>
+  <SYS ID="qjc_lims_test">广西环境监测中心站业务信息管理系统 </SYS>
+  <ORGID>450101</ORGID>
+  <ZZBH>451623</ZZBH>
+  <ZZJC>监测站</ZZJC>
+  <RETURN_MESSAGE>
+    <IS_SUCCESS_FLAG>true</IS_SUCCESS_FLAG>
+    <DESCRIBE>客户端IP[10.45.1.226]请求xtbh:[qjc_lims_test]认证通过！</DESCRIBE>
+  </RETURN_MESSAGE>
+  <SWINFOS>
+    <SWINFO>
+      <USERID/>
+      <YWBH>10816151826820728</YWBH>
+      <SWLX>TZGG</SWLX>
+      <SWBT>关于按时报送各项重点工作进展情况材料的通知</SWBT>
+      <SWLCBH></SWLCBH>
+      <SWZT></SWZT>
+      <FKYJ></FKYJ>
+      <BZ></BZ>
+      <LCDYBH>1</LCDYBH>
+      <BZDYBH>1</BZDYBH>
+      <BZBH>1</BZBH>
+      <JBXX>
+        <SWBT>关于按时报送各项重点工作进展情况材料的通知</SWBT>
+        <LCDYBH>1</LCDYBH>
+        <BZDYBH>1</BZDYBH>
+        <BZBH>1</BZBH>
+        <TZNR>&lt;p class="MsoNormal" align="center" style="text-align: center; margin: 0cm 0cm 0pt; line-height: 30pt; mso-line-height-rule: exactly"&gt;&lt;span style="line-height: 40px"&gt;&lt;span style="font-size: 22pt; font-family: 方正小标宋_GBK"&gt;关于按时报送重点工作&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 22pt; font-family: 方正小标宋_GBK"&gt;&lt;span lang="EN-US"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" align="center" style="text-align: center; margin: 0cm 0cm 0pt; line-height: 30pt; mso-line-height-rule: exactly"&gt;&lt;span style="line-height: 40px"&gt;&lt;span style="font-size: 22pt; font-family: 方正小标宋_GBK"&gt;进展情况材料的通知&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 22pt; font-family: 方正小标宋_GBK"&gt;&lt;span lang="EN-US"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="margin: 0cm 0cm 0pt"&gt;&lt;span style="line-height: 40px"&gt;&lt;span lang="EN-US" style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;&lt;o:p&gt;&amp;nbsp;&lt;/o:p&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN-US" style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="margin: 0cm 0cm 0pt"&gt;&lt;span style="line-height: 40px"&gt;&lt;span style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;厅机关各处室、各直属单位：&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;&lt;span lang="EN-US"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 32.25pt"&gt;&lt;span style="line-height: 40px"&gt;&lt;span style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;今年以来，自治区党委、政府印发了各项重点工作分工，为分解任务、明确责任，形成既有分工又有合作的工作局面，厅办公室对自治区党委、政府安排给我厅的重点工作和&lt;span lang="EN-US"&gt;2017&lt;/span&gt;年全区环境保护会议上明确的&amp;ldquo;十抓&amp;rdquo;工作进行了厅内分工，并梳理形成了《&lt;span lang="EN-US"&gt;2017&lt;/span&gt;年重点工作分工表》。目前，已进入&lt;span lang="EN-US"&gt;7&lt;/span&gt;月份，根据相关文件要求，多数工作需要向自治区党委、政府或牵头部门报送材料，请各处室、直属单位认真对照分工表，按时报送工作进展材料。不在分工表之列的重点工作，也要全面梳理，及时报送材料。对分工有异议的，请及时向厅办公室反馈意见。&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;&lt;span lang="EN-US"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 32.25pt"&gt;&lt;span style="line-height: 40px"&gt;&lt;span lang="EN-US" style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;&lt;o:p&gt;&amp;nbsp;&lt;/o:p&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN-US" style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 32.25pt"&gt;&lt;span style="line-height: 40px"&gt;&lt;span style="font-size: 16pt; font-family: 方正仿宋_GBK"&gt;附件：&lt;span lang="EN-US"&gt;2017&lt;/span&gt;年重要工作分工表&lt;br /&gt;&lt;br /&gt;　　　　　　　　　　　　　　　　　　　　　　厅办公室&lt;br /&gt;　　　　　　　　　　　　　　　　　　　　　2017年7月6日&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;</TZNR>
+        <TZNRTEXT>
+          关于按时报送重点工作
+          进展情况材料的通知
+
+          厅机关各处室、各直属单位：
+          今年以来，自治区党委、政府印发了各项重点工作分工，为分解任务、明确责任，形成既有分工又有合作的工作局面，厅办公室对自治区党委、政府安排给我厅的重点工作和2017年全区环境保护会议上明确的“十抓”工作进行了厅内分工，并梳理形成了《2017年重点工作分工表》。目前，已进入7月份，根据相关文件要求，多数工作需要向自治区党委、政府或牵头部门报送材料，请各处室、直属单位认真对照分工表，按时报送工作进展材料。不在分工表之列的重点工作，也要全面梳理，及时报送材料。对分工有异议的，请及时向厅办公室反馈意见。
+
+          附件：2017年重要工作分工表
+
+          　　　　　　　　　　　　　　　　　　　　　　厅办公室
+          　　　　　　　　　　　　　　　　　　　　　2017年7月6日
+        </TZNRTEXT>
+        <TZZT>1</TZZT>
+        <TZJSR>综合监察处,办公室,规财处,法规处,科标处,环评处,气处,水处,重金属处,生态处,监测处,核总工,辐射处,核管处,人事处,驻厅纪检组,机关党委,政务窗口,其他,总队、应急中心,监测站,环科院,辐射站,宣教中心,记者站,海洋站,金花茶管理处,固管中心,技术中心,机关服务中心,应急中心,信息中心</TZJSR>
+        <SFYX>1</SFYX>
+        <YXJ>1</YXJ>
+        <JSFS>0</JSFS>
+        <ZXFK>1</ZXFK>
+        <CJSJ>2017-07-06 16:56:41.48</CJSJ>
+        <CJR>覃文用</CJR>
+        <XGSJ>2017-07-06 17:00:51.247</XGSJ>
+        <XGR>樊德明</XGR>
+        <ORGID>450000</ORGID>
+        <GZLBH></GZLBH>
+        <SFTY></SFTY>
+        <SFYC></SFYC>
+        <BMBH>000002</BMBH>
+        <CREATOR></CREATOR>
+        <SENDTOID>[000026, 000002, 000004, 000005, 000009, 000006, 000007, 000025, 000021, 000008, 000017, 000020, 000010, 000014, 000003, 000012, 000011, 499, 500, 451622, 451623, 451621, 451624, 451625, 451630, 451626, 451628, 451629, 451632, 000018, 451633, 451631]</SENDTOID>
+        <WRITER>qinwenyong</WRITER>
+        <TITLETYPE></TITLETYPE>
+        <TITLECOLOR></TITLECOLOR>
+        <TITLESIZE></TITLESIZE>
+        <COPYFROM>办公室</COPYFROM>
+        <PCDATE></PCDATE>
+        <SAVEPATH></SAVEPATH>
+        <FILENAME></FILENAME>
+        <FILEEXNAME></FILEEXNAME>
+        <SHR></SHR>
+        <SHRQ></SHRQ>
+        <QF></QF>
+        <NGRQ></NGRQ>
+        <QFRQ></QFRQ>
+        <GLBH>10815927490929434</GLBH>
+        <TZMB>2</TZMB>
+        <ZBDW>办公室</ZBDW>
+        <FBR>覃文用</FBR>
+        <NGR>覃文用</NGR>
+        <NGSJ>2017-07-06 00:00:00.0</NGSJ>
+        <CSHGR>樊德明</CSHGR>
+        <HGSJ>2017-07-06 00:00:00.0</HGSJ>
+        <TGSSG>458203</TGSSG>
+        <TLDQF></TLDQF>
+        <QFSJ></QFSJ>
+        <TGXXID></TGXXID>
+        <DXNR>您有标题为：“关于按时报送各项重点工作进展情况材料的通知”的通知公告，请登录系统查收;</DXNR>
+        <CSSHZT>1</CSSHZT>
+        <CHYJ></CHYJ>
+      </JBXX>
+      <FJXXS>
+        <FJXX>
+          <WDBH>10816054146833746</WDBH>
+          <APPBH>10815927490929434</APPBH>
+          <WDMC>2017年重点工作分工表.xls</WDMC>
+          <WDLX>application/octet-stream</WDLX>
+          <WDSX>tzgg</WDSX>
+          <WDDX>70 KB</WDDX>
+          <WDYYR></WDYYR>
+          <WDZT>0</WDZT>
+          <WDMS>uploadfile\tzgg\10816054146833746.xls</WDMS>
+          <WDZZ>/plat</WDZZ>
+          <WDLJ>E:\PUBLISH\ZHBGGX\WebRoot\uploadfile\tzgg\10816054146833746.xls</WDLJ>
+          <SYSTEMID>zhbg</SYSTEMID>
+          <WDBT>10816054146833746.xls</WDBT>
+          <DQBB></DQBB>
+          <WDHZ>xls</WDHZ>
+          <CJSJ>2017-07-06 16:55:03.817</CJSJ>
+          <CJR>覃文用</CJR>
+          <XGSJ></XGSJ>
+          <XGR></XGR>
+          <ORGID></ORGID>
+          <SFZSGW></SFZSGW>
+          <MINORSID></MINORSID>
+          <RELPATH></RELPATH>
+          <BZ></BZ>
+          <ZLX></ZLX>
+          <SFYSJ></SFYSJ>
+          <SFCSDS></SFCSDS>
+        </FJXX>
+      </FJXXS>
+      <CLYJS>
+        <CLYJ>
+          <TID>10816151838142836</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000026</DM>
+          <MC>环境保护综合监察处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:08:50.967</RRQ>
+          <VIP>10.45.124.77</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>蔡永忠</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>蔡永忠</XGR>
+          <XGSJ>2017-07-06 17:08:50.967</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151838872260</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000002</DM>
+          <MC>办公室</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 16:56:45.387</RRQ>
+          <VIP>10.45.127.58</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>覃文用</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>覃文用</XGR>
+          <XGSJ>2017-07-06 16:56:45.387</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151839575422</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000004</DM>
+          <MC>规划财务处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:38:59.247</RRQ>
+          <VIP>10.45.123.80</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>黄素英</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>黄素英</XGR>
+          <XGSJ>2017-07-06 17:38:59.247</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151840454024</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000005</DM>
+          <MC>政策法规处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:28:15.667</RRQ>
+          <VIP>10.45.124.81</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>胡展章</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>胡展章</XGR>
+          <XGSJ>2017-07-06 17:28:15.667</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151841149922</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000009</DM>
+          <MC>科技标准处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:50:45.58</RRQ>
+          <VIP>10.45.124.56</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>田雷</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>田雷</XGR>
+          <XGSJ>2017-07-06 17:50:45.58</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151841955612</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000006</DM>
+          <MC>环境影响评价管理处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:58:18.387</RRQ>
+          <VIP>10.45.125.52</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>李亮光</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>李亮光</XGR>
+          <XGSJ>2017-07-06 17:58:18.387</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151842896514</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000007</DM>
+          <MC>大气环境管理处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:08:49.7</RRQ>
+          <VIP>10.45.120.87</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>苏方彬</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>苏方彬</XGR>
+          <XGSJ>2017-07-06 17:08:49.7</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151843616158</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000025</DM>
+          <MC>水环境管理处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:07:17.997</RRQ>
+          <VIP>10.45.120.51</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>赖春苗</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.497</CJSJ>
+          <XGR>赖春苗</XGR>
+          <XGSJ>2017-07-06 17:07:17.997</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151844459842</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000021</DM>
+          <MC>重金属污染防治处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 18:17:54.68</RRQ>
+          <VIP>121.31.250.204</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>韦杰宏</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>韦杰宏</XGR>
+          <XGSJ>2017-07-06 18:17:54.68</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151845173898</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000008</DM>
+          <MC>自然生态与农村环境保护处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-07 10:09:24.92</RRQ>
+          <VIP>10.45.120.74</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>叶志平</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>叶志平</XGR>
+          <XGSJ>2017-07-07 10:09:24.92</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151845877060</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000017</DM>
+          <MC>环境监测处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:25:44.41</RRQ>
+          <VIP>10.45.124.72</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>何能贤</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>何能贤</XGR>
+          <XGSJ>2017-07-06 17:25:44.41</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151846589162</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000020</DM>
+          <MC>核总工程师</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-07 08:03:40.977</RRQ>
+          <VIP>10.45.128.61</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>李新平</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>李新平</XGR>
+          <XGSJ>2017-07-07 08:03:40.977</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151847438992</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000010</DM>
+          <MC>核与辐射安全管理处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:23:50.95</RRQ>
+          <VIP>113.15.29.12</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>谭良</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>谭良</XGR>
+          <XGSJ>2017-07-06 17:23:50.95</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151848117288</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000014</DM>
+          <MC>核设施安全管理处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ></RRQ>
+          <VIP></VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID></RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR></XGR>
+          <XGSJ></XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151848971028</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000003</DM>
+          <MC>人事处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:19:29.277</RRQ>
+          <VIP>10.45.123.66</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>人事处陈婷</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>人事处陈婷</XGR>
+          <XGSJ>2017-07-06 17:19:29.277</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151849926178</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000012</DM>
+          <MC>驻厅纪检组</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:38:01.117</RRQ>
+          <VIP>10.45.128.80</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>韦华生</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>韦华生</XGR>
+          <XGSJ>2017-07-06 17:38:01.117</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151850613694</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000011</DM>
+          <MC>机关党委</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-07 09:56:04.103</RRQ>
+          <VIP>10.45.123.73</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>姚西平</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>姚西平</XGR>
+          <XGSJ>2017-07-07 09:56:04.103</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151851488108</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>499</DM>
+          <MC>政务服务大厅窗口</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ></RRQ>
+          <VIP></VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID></RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR></XGR>
+          <XGSJ></XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151852165568</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>500</DM>
+          <MC>其他</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ></RRQ>
+          <VIP></VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID></RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR></XGR>
+          <XGSJ></XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151852889962</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451622</DM>
+          <MC>广西壮族自治区环境监察总队、应急中心</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:13:04.497</RRQ>
+          <VIP>10.45.116.72</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>何一平</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>何一平</XGR>
+          <XGSJ>2017-07-06 17:13:04.497</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151853575244</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451623</DM>
+          <MC>广西壮族自治区环境监测中心站</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:03:27.31</RRQ>
+          <VIP>10.45.134.55</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>李霖</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>李霖</XGR>
+          <XGSJ>2017-07-06 17:03:27.31</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151854425910</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451621</DM>
+          <MC>广西壮族自治区环境保护科学研究院</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:51:59.097</RRQ>
+          <VIP>10.186.30.95</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>赵侣璇</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>赵侣璇</XGR>
+          <XGSJ>2017-07-06 17:51:59.097</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151855106446</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451624</DM>
+          <MC>广西壮族自治区辐射环境监督管理站</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:08:19.467</RRQ>
+          <VIP>10.45.148.192</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>于慧君</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>于慧君</XGR>
+          <XGSJ>2017-07-06 17:08:19.467</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151855887272</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451625</DM>
+          <MC>广西壮族自治区环境宣传教育中心、记者站</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:06:08.62</RRQ>
+          <VIP>10.45.119.51</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>郭建强</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>郭建强</XGR>
+          <XGSJ>2017-07-06 17:06:08.62</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151856557468</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451630</DM>
+          <MC>中国环境报社广西记者站</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ></RRQ>
+          <VIP></VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID></RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR></XGR>
+          <XGSJ></XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151857525748</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451626</DM>
+          <MC>广西壮族自治区海洋环境监测中心站</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:35:02.327</RRQ>
+          <VIP>10.186.26.21</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>罗金福</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>罗金福</XGR>
+          <XGSJ>2017-07-06 17:35:02.327</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151858225556</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451628</DM>
+          <MC>广西壮族自治区防城金花茶国家级自然保护区管理处</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:57:57.003</RRQ>
+          <VIP>10.186.28.1</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>黄立东</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>黄立东</XGR>
+          <XGSJ>2017-07-06 17:57:57.003</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151858894358</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451629</DM>
+          <MC>广西壮族自治区固体废物管理中心</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:16:35.893</RRQ>
+          <VIP>10.45.115.84</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>何欣凌</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.513</CJSJ>
+          <XGR>何欣凌</XGR>
+          <XGSJ>2017-07-06 17:16:35.893</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151859626852</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451632</DM>
+          <MC>广西壮族自治区环境保护技术中心</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:58:31.517</RRQ>
+          <VIP>10.45.115.93</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>邓杰</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.527</CJSJ>
+          <XGR>邓杰</XGR>
+          <XGSJ>2017-07-06 17:58:31.517</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151860482268</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>000018</DM>
+          <MC>机关服务中心</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-06 17:19:50.17</RRQ>
+          <VIP>10.45.121.97</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>李清峰</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.527</CJSJ>
+          <XGR>李清峰</XGR>
+          <XGSJ>2017-07-06 17:19:50.17</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151861480440</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451633</DM>
+          <MC>广西壮族自治区环境应急与事故调查中心</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ></RRQ>
+          <VIP></VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID></RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.527</CJSJ>
+          <XGR></XGR>
+          <XGSJ></XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+        <CLYJ>
+          <TID>10816151862155664</TID>
+          <TZBH>10816151826820728</TZBH>
+          <DM>451631</DM>
+          <MC>广西壮族自治区环境信息中心</MC>
+          <FKNR></FKNR>
+          <FKRQ></FKRQ>
+          <RRQ>2017-07-07 08:00:33.34</RRQ>
+          <VIP>10.45.118.170</VIP>
+          <ZT></ZT>
+          <UID></UID>
+          <RUID>曾铜炳</RUID>
+          <CJR>覃文用</CJR>
+          <CJSJ>2017-07-06 16:56:41.527</CJSJ>
+          <XGR>曾铜炳</XGR>
+          <XGSJ>2017-07-07 08:00:33.34</XGSJ>
+          <ORGID></ORGID>
+        </CLYJ>
+      </CLYJS>
+    </SWINFO>
+  </SWINFOS>
+</SW>

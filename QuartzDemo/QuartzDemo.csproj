@@ -84,7 +84,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="QuartzJobs\BankCardJob.cs" />
-    <Compile Include="QuartzJobs\entity\UnReceiveTask.cs" />
+    <Compile Include="QuartzJobs\entity\B_OA_IReceiveTask.cs" />
     <Compile Include="QuartzJobs\Test1Job.cs" />
     <Compile Include="QuartzJobs\LwJob.cs" />
     <Compile Include="QuartzJobs\TestJob.cs" />
@@ -120,6 +120,9 @@
     <None Include="Web References\WebReference\WebService1.wsdl" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="QuartzJobs\taskDetail2.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="QuartzJobs\taskDetail.xml">
       <SubType>Designer</SubType>
     </Content>

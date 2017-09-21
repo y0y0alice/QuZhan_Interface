@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace QuartzDemo.QuartzJobs.entity
 {
     [Serializable]
-    [DataTableInfo("T_OA_JKFW_YBJSRWLB", "ywbh")]
-    public class T_OA_JKFW_YBJSRWLB : QueryInfo
+    [DataTableInfo("B_OA_IReceiveTask", "ywbh")]
+    public class B_OA_IReceiveTask : QueryInfo
     {
-
-        public T_OA_JKFW_YBJSRWLB(string userid, string ywbh, string swlx,
+        public B_OA_IReceiveTask() { }
+        public B_OA_IReceiveTask(string userid, string ywbh, string swlx,
             string swbt, string swlcbh, string sfzdjr, string swzt, string fkyj, string bz)
         {
             this.USERID = userid;
@@ -25,31 +25,31 @@ namespace QuartzDemo.QuartzJobs.entity
             this.FKYJ = fkyj;
             this.BZ = bz;
         }
-        [DataField("USERID", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("USERID", "B_OA_IReceiveTask")]
         public string USERID { get; set; }
 
-        [DataField("YWBH", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("YWBH", "B_OA_IReceiveTask")]
         public string YWBH { get; set; }
 
-        [DataField("SWLX", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("SWLX", "B_OA_IReceiveTask")]
         public string SWLX { get; set; }
 
-        [DataField("SWBT", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("SWBT", "B_OA_IReceiveTask")]
         public string SWBT { get; set; }
 
-        [DataField("SWLCBH", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("SWLCBH", "B_OA_IReceiveTask")]
         public string SWLCBH { get; set; }
 
-        [DataField("SFZDJR", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("SFZDJR", "B_OA_IReceiveTask")]
         public string SFZDJR { get; set; }
 
-        [DataField("SWZT", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("SWZT", "B_OA_IReceiveTask")]
         public string SWZT { get; set; }
 
-        [DataField("FKYJ", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("FKYJ", "B_OA_IReceiveTask")]
         public string FKYJ { get; set; }
 
-        [DataField("BZ", "T_OA_JKFW_YBJSRWLB")]
+        [DataField("BZ", "B_OA_IReceiveTask")]
         public string BZ { get; set; }
 
     }
