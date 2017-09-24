@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace QuartzDemo.QuartzJobs.entity
 {
     [Serializable]
-    [DataTableInfo("B_OA_IReceiveTask", "ywbh")]
+    [DataTableInfo("B_OA_IReceiveTask", "YWBH")]
     public class B_OA_IReceiveTask : QueryInfo
     {
         public B_OA_IReceiveTask() { }

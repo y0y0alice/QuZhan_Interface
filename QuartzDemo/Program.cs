@@ -13,22 +13,22 @@ namespace QuartzDemo
     {
         static void Main(string[] args)
         {
-            //log4net.Config.XmlConfigurator.ConfigureAndWatch(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config"));
-            //HostFactory.Run(x =>
-            //{
-            //    x.UseLog4Net();
+            log4net.Config.XmlConfigurator.ConfigureAndWatch(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config"));
+            HostFactory.Run(x =>
+            {
+                x.UseLog4Net();
 
-            //    x.Service<ServiceRunner>();
+                x.Service<ServiceRunner>();
 
-            //    x.SetDescription("QuartzDemo服务描述");
-            //    x.SetDisplayName("QuartzDemo服务显示名称");
-            //    x.SetServiceName("QuartzDemo服务名称");
+                x.SetDescription("QuartzDemo服务描述");
+                x.SetDisplayName("QuartzDemo服务显示名称");
+                x.SetServiceName("QuartzDemo服务名称");
 
-            //    x.EnablePauseAndContinue();
-            //});
+                x.EnablePauseAndContinue();
+            });
 
-            LwJob lw = new LwJob();
-            lw.taskDetail("","","");
+            //LwJob lw = new LwJob();
+            //lw.taskDetail("qjc_lims_test", "10816151826820728", "TZGG", null);
         }
     }
 }

@@ -1,15 +1,19 @@
 ﻿using IWorkFlow.Host;
 using log4net;
+using Newtonsoft.Json;
 using Quartz;
 using QuartzDemo.QuartzJobs.entity;
 using QuartzDemo.WebReference;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
+using VIM.Data.Common.Parser;
 
 namespace QuartzDemo.QuartzJobs
 {
@@ -75,8 +79,10 @@ namespace QuartzDemo.QuartzJobs
                     if (Utility.Database.QueryObject(receive, tran) == null)
                     {
                         Utility.Database.Insert(receive, tran);
-                        _logger.InfoFormat("业务编号:" + receive.YWBH + " 收文标题:" + receive.SWBT + "插入成功！");
+                        _logger.InfoFormat("成功插入主表一条数据！");
                     };
+                    //添加或者修改通知公告详细内容
+                    taskDetail("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
                     Utility.Database.Commit(tran);
                 }
                 catch (Exception ex)
@@ -88,20 +94,61 @@ namespace QuartzDemo.QuartzJobs
             }
         }
 
-        public void taskDetail(string xtbh, string swbh, string swlx)
+        public void taskDetail(string xtbh, string swbh, string swlx, IDbTransaction tran)
         {
             //本地测试
             XmlDocument xmlDocument = new XmlDocument();
             var dir = Directory.GetCurrentDirectory();
             string serverpath = dir + "\\taskDetai.xml";
             xmlDocument.Load(serverpath);
+
             XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
-
-            //基本信息
-            XmlNodeList jbxx = xmlNodeList[0].SelectSingleNode("JBXX").ChildNodes;
-            foreach (XmlNode detail in jbxx)
+            //获取基本信息
+            XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
+            string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(receiveXml);
+            JBXXModel JBXXModel = JsonConvert.DeserializeObject<JBXXModel>(json);
+            B_OA_ITaskDetail taskDetail = JBXXModel.JBXX;
+            taskDetail.YWBH = swbh;
+            taskDetail.SWLX = swlx;
+            taskDetail.Condition.Add("YWBH =" + taskDetail.YWBH);
+            taskDetail.Condition.Add("SWLX =" + taskDetail.SWLX);
+            if (Utility.Database.QueryObject(taskDetail, tran) == null)
             {
+                Utility.Database.Insert(taskDetail, tran);
+                _logger.InfoFormat("成功插入父表一条数据！");
+            }
+            else
+            {
+                Utility.Database.Update(taskDetail, tran);
+                _logger.InfoFormat("成功修改父表一条数据！");
+            }
+        }
 
+        public class JBXXModel
+        {
+            public B_OA_ITaskDetail JBXX;
+        }
+
+
+        public static T DeserializeXML<T>(string xmlObj)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            using (StringReader reader = new StringReader(xmlObj))
+            {
+                return (T)serializer.Deserialize(reader);
+            }
+        }
+
+        /// <summary>
+        /// 反序列化
+        /// </summary>
+        public static T Deserialize<T>(string xmlContent)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            using (StringReader strReader = new StringReader(xmlContent))
+            {
+                XmlReader xmlReader = XmlReader.Create(strReader);
+                return (T)xs.Deserialize(xmlReader);
             }
         }
     }
