@@ -99,6 +99,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="QuartzJobs\BankCardJob.cs" />
+    <Compile Include="QuartzJobs\entity\B_OA_IAttachment.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IReceiveTask.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_ITaskDetail.cs" />
     <Compile Include="QuartzJobs\ITopParser.cs" />

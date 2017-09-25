@@ -103,8 +103,30 @@ namespace QuartzDemo.QuartzJobs
             xmlDocument.Load(serverpath);
 
             XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
-            //获取基本信息
+            //文档详情
             XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
+            InserOrUpdateDetail(receiveXml, swbh, swlx, tran);
+            //附件详情
+            XmlNode attachmentXml = xmlNodeList[0].SelectSingleNode("FJXXS");
+            InserOrUpdateAttachment(attachmentXml, swbh, swlx, tran);
+        }
+
+        public void InserOrUpdateAttachment(XmlNode aa, string swbh, string swlx, IDbTransaction tran)
+        {
+            string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(aa);
+           TestModel JBXXModel = JsonConvert.DeserializeObject<TestModel>(json);
+        }
+
+        /// <summary>
+        /// 插入或者修改文档详情表
+        /// </summary>
+        /// <param name="receiveXml">xml数据</param>
+        /// <param name="xtbh">系统编号</param>
+        /// <param name="swbh">收文编号</param>
+        /// <param name="swlx">收文类型</param>
+        /// <param name="tran">事务</param>
+        public void InserOrUpdateDetail(XmlNode receiveXml, string swbh, string swlx, IDbTransaction tran)
+        {
             string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(receiveXml);
             JBXXModel JBXXModel = JsonConvert.DeserializeObject<JBXXModel>(json);
             B_OA_ITaskDetail taskDetail = JBXXModel.JBXX;
@@ -124,32 +146,18 @@ namespace QuartzDemo.QuartzJobs
             }
         }
 
+        public class TestModel {
+            public FJXXS FJXXS;
+        }
+
+        public class FJXXS
+        {
+            public List<B_OA_IAttachment> FJXX;
+        }
+
         public class JBXXModel
         {
             public B_OA_ITaskDetail JBXX;
-        }
-
-
-        public static T DeserializeXML<T>(string xmlObj)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (StringReader reader = new StringReader(xmlObj))
-            {
-                return (T)serializer.Deserialize(reader);
-            }
-        }
-
-        /// <summary>
-        /// 反序列化
-        /// </summary>
-        public static T Deserialize<T>(string xmlContent)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(T));
-            using (StringReader strReader = new StringReader(xmlContent))
-            {
-                XmlReader xmlReader = XmlReader.Create(strReader);
-                return (T)xs.Deserialize(xmlReader);
-            }
         }
     }
 }
