@@ -13,8 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
-using VIM.Data.Common.Parser;
-
 namespace QuartzDemo.QuartzJobs
 {
     public sealed class LwJob : IJob
@@ -107,14 +105,30 @@ namespace QuartzDemo.QuartzJobs
             XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
             InserOrUpdateDetail(receiveXml, swbh, swlx, tran);
             //附件详情
-            XmlNode attachmentXml = xmlNodeList[0].SelectSingleNode("FJXXS");
-            InserOrUpdateAttachment(attachmentXml, swbh, swlx, tran);
+            XmlNodeList attachmentXmls = xmlNodeList[0].SelectSingleNode("FJXXS").SelectNodes("FJXX");
+            InserOrUpdateAttachment(attachmentXmls, swbh, swlx, tran);
         }
 
-        public void InserOrUpdateAttachment(XmlNode aa, string swbh, string swlx, IDbTransaction tran)
+        public void InserOrUpdateAttachment(XmlNodeList attachmentXmls, string swbh, string swlx, IDbTransaction tran)
         {
-            string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(aa);
-           TestModel JBXXModel = JsonConvert.DeserializeObject<TestModel>(json);
+            foreach (XmlNode node in attachmentXmls)
+            {
+                string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(node);
+                AttachmentModel JBXXModel = JsonConvert.DeserializeObject<AttachmentModel>(json);
+                B_OA_IAttachment attachment = JBXXModel.FJXX;
+                attachment.Condition.Add("WDBH = " + attachment.WDBH);
+                attachment.Condition.Add("APPBH = " + attachment.APPBH);
+                if (Utility.Database.QueryObject(attachment, tran) == null)
+                {
+                    Utility.Database.Insert(attachment, tran);
+                }
+                else
+                {
+                    attachment.Condition.Add("WDBH = " + attachment.WDBH);
+                    attachment.Condition.Add("APPBH = " + attachment.APPBH);
+                    Utility.Database.Update(attachment, tran);
+                }
+            }
         }
 
         /// <summary>
@@ -146,13 +160,19 @@ namespace QuartzDemo.QuartzJobs
             }
         }
 
-        public class TestModel {
+        public class TestModel
+        {
             public FJXXS FJXXS;
         }
 
         public class FJXXS
         {
             public List<B_OA_IAttachment> FJXX;
+        }
+
+        public class AttachmentModel
+        {
+            public B_OA_IAttachment FJXX;
         }
 
         public class JBXXModel

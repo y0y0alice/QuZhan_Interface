@@ -5,8 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using VIM.Data.Common;
-
 namespace QuartzDemo.QuartzJobs.entity
 {
     [Serializable]
