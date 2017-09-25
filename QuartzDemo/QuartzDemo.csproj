@@ -44,23 +44,13 @@
     <Reference Include="Common.Logging.Log4Net1213">
       <HintPath>..\packages\Common.Logging.Log4Net1213.3.3.1\lib\net40\Common.Logging.Log4Net1213.dll</HintPath>
     </Reference>
-    <Reference Include="IWorkFlow.BaseService">
-      <HintPath>..\packages\fxdll\IWorkFlow.BaseService.dll</HintPath>
-    </Reference>
-    <Reference Include="IWorkFlow.DataBase">
+    <Reference Include="IWorkFlow.DataBase, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\fxdll\IWorkFlow.DataBase.dll</HintPath>
     </Reference>
-    <Reference Include="IWorkFlow.Engine">
-      <HintPath>..\packages\fxdll\IWorkFlow.Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="IWorkFlow.EngineService">
-      <HintPath>..\packages\fxdll\IWorkFlow.EngineService.dll</HintPath>
-    </Reference>
-    <Reference Include="IWorkFlow.Host">
+    <Reference Include="IWorkFlow.Host, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\fxdll\IWorkFlow.Host.dll</HintPath>
-    </Reference>
-    <Reference Include="IWorkFlow.Mvc">
-      <HintPath>..\packages\fxdll\IWorkFlow.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
