@@ -88,6 +88,7 @@
     <Compile Include="QuartzJobs\BankCardJob.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IAttachment.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IReceiveTask.cs" />
+    <Compile Include="QuartzJobs\entity\B_OA_ISuggestion.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_ITaskDetail.cs" />
     <Compile Include="QuartzJobs\Test1Job.cs" />
     <Compile Include="QuartzJobs\LwJob.cs" />

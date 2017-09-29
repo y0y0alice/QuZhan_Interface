@@ -1,0 +1,671 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IWorkFlow.EngineService</name>
+    </assembly>
+    <members>
+        <member name="T:IWorkFlow.EngineService.draftAPI">
+            <summary>
+            草稿、非工作流业务提醒的接口
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.getNewDraftPath(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取新的草稿路径，用于未创建业务
+            </summary>
+            <param name="userid">当前用户</param>
+            <param name="flowid"></param>
+            <param name="guid"></param>
+            <param name="title">业务名称</param>
+            <returns>草稿文件路径</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.getCaseDraftPath(System.String,System.String,System.String)">
+            <summary>
+            指定的业务路径，用于已经创建的业务
+            </summary>
+            <param name="userid"></param>
+            <param name="caseid"></param>
+            <param name="baid"></param>
+            <returns>草稿文件路径</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.getAllNewDraftFile(System.String)">
+            <summary>
+            取得指定用户的所有新建业务的草稿
+            </summary>
+            <param name="userid"></param>
+            <returns>路径的list</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.getAllCaseDraftFile(System.String)">
+            <summary>
+            获得全部非新建业务的草稿路径
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.deleteOneDraft(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            删除某一步的草稿，如果设置guid，就需要设置flowid，否则必须设置caseid及baid
+            </summary>
+            <param name="guid">新建业务的guid</param>
+            <param name="flowid"></param>
+            <param name="caseid">非新建业务的id</param>
+            <param name="baid">指定步骤</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.deleteCaseAllDraft(System.String,System.String,System.String)">
+            <summary>
+            删除指定业务的全部草稿
+            </summary>
+            <param name="guid">未创建业务</param>
+            <param name="flowid"></param>
+            <param name="caseid">已创建业务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.addAlert(IWorkFlow.Engine.CaseItem,System.Boolean)">
+            <summary>
+            新建非工作流的业务提醒，判断是否新建业务提醒
+            </summary>
+            <param name="ci"></param>
+            <param name="sendMsg">是否创建业务提醒，如果不，需要自己创建消息提醒</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.draftAPI.deleteAlert(System.String,System.String)">
+            <summary>
+            删除指定的非工作流业务提醒，同时删除响应的消息提醒
+            </summary>
+            <param name="userid">当前用户</param>
+            <param name="caseid"></param>
+        </member>
+        <member name="T:IWorkFlow.EngineService.engineAPI">
+            <summary>
+            工作流调用界面
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.Create(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            创建业务
+            </summary>
+            <param name="flowID">流程id</param>
+            <param name="creater">创建用户</param>
+            <param name="name">业务名称</param>
+            <param name="caseid">业务id，如果为空会自动创建一个</param>
+            <param name="args">事务</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.Back(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            业务回退
+            </summary>
+            <param name="caseID">业务id</param>
+            <param name="baID">当前节点</param>
+            <param name="senderid">当前用户</param>
+            <param name="remark">回退说明</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.End(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            业务办结,必须由唯一在办用户办结，除了子流程和协同节点以外
+            调用之后需要自己处理那些消息提醒，删除草稿及业务相应的操作
+            </summary>
+            <param name="caseID">业务id</param>
+            <param name="baID">当前节点，没有的话自动获取在办节点</param>
+            <param name="userid">当前用户</param>
+            <param name="remark">办结说明</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.EndAct(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            办结当前步骤，用于会签、传阅、协同节点
+            </summary>
+            <param name="caseID">业务id</param>
+            <param name="baID">需办结的节点</param>
+            <param name="userid">当前用户</param>
+            <param name="remark">说明</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.Delete(System.String,System.String,System.Object)">
+            <summary>
+            删除业务，会自动删除相应的草稿，调用工作流业务对应的删除回调
+            创建人为空字符串的话会自动设置为当前业务办理人之一
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="creater">创建人</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.Send(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.Object)">
+            <summary>
+            发送
+            </summary>
+            <param name="caseID">业务id</param>
+            <param name="baID">当前id</param>
+            <param name="senderid">发送人</param>
+            <param name="receivers">接收人</param>
+            <param name="receAct">接收步骤</param>
+            <param name="remark">说明</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.Resume(System.String,System.String,System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            恢复办理
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="baid">恢复的步骤</param>
+            <param name="userid">当前用户</param>
+            <param name="remark">说明</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.Stop(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            停办
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="baid">当前id</param>
+            <param name="userid">发送人</param>
+            <param name="remark">说明</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.AddCaseRelation(System.String,System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            设置业务关联
+            </summary>
+            <param name="startCaseid">发起业务</param>
+            <param name="startBaid">发起步骤</param>
+            <param name="nextCaseid">后续业务</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.ReLoadOneCase(System.String,System.Data.IDbTransaction)">
+            <summary>
+            重载业务，将办结业务取消办结
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.RevocationSubAct(System.String,System.String,System.String)">
+            <summary>
+            撤回发出去的子流程或会签，并删除相应的消息提醒
+            </summary>
+            <param name="caseid"></param>
+            <param name="userid"></param>
+            <param name="baids"></param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.SetBizActExpireDate(System.String,System.String,System.DateTime)">
+            <summary>
+            设置过期日期
+            </summary>
+            <param name="caseID">业务id</param>
+            <param name="baid">需要设置的步骤id</param>
+            <param name="expiredate">过期日期</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.SetBizCaseName(System.String,System.String,System.Object)">
+            <summary>
+            修改业务名称
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="caseName">新的业务名称</param>
+            <param name="args">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.AddLabel(System.String,System.String,System.String)">
+            <summary>
+            添加标签
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="bdid">步骤id，如果为空则直接在业务上标签</param>
+            <param name="labelKey">标签名称</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.DelLabel(System.String,System.String,System.String)">
+            <summary>
+            删除标签
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="bdid">步骤id，如果为空则直接在业务上删除标签</param>
+            <param name="labelKey">标签名称</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.rollback(System.String)">
+            <summary>
+            回滚工作流事务
+            </summary>
+            <param name="guid"></param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.commit(System.String)">
+            <summary>
+            提交工作流事务
+            </summary>
+            <param name="guid"></param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.beginTransaction(System.String)">
+            <summary>
+            创建工作流事务，本质是构建指定的业务实例副本，如果提交，则删除副本，如果回滚，则将副本替换当前业务实例
+            </summary>
+            <param name="caseid">指定业务实例编号</param>
+            <returns>事务id</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.getAllCase">
+            <summary>
+            获取所有待办业务实例
+            准备作废
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.getCaseItemByCase(IWorkFlow.Engine.BusinessCase)">
+            <summary>
+            根据业务实例返回caseitem
+            准备作废
+            </summary>
+            <param name="bc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.getCase(System.String)">
+            <summary>
+            获取待办业务实例
+            </summary>
+            <param name="caseid">业务id</param>
+            <returns>没找到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.getAnyCase(System.String)">
+            <summary>
+            获取任意业务，不管是不是办结，不会获取已删除业务
+            </summary>
+            <param name="caseid"></param>
+            <returns>没有找到或已删除返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.GetCaseModel(System.String)">
+            <summary>
+            获取业务模型
+            </summary>
+            <param name="flowid"></param>
+            <returns>没找到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.GetAct(System.String,System.String)">
+            <summary>
+            业务节点实例，如果actid为空，则返回当前办理节点
+            </summary>
+            <param name="caseid"></param>
+            <param name="baid"></param>
+            <returns>没有找到业务抛出异常，没有响应的baid返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.GetActModel(System.String,System.String)">
+            <summary>
+            获取节点模型
+            </summary>
+            <param name="flowid"></param>
+            <param name="actid"></param>
+            <returns>没有flowid抛异常，没有actid返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.GetReceiveActModels(System.String,System.String)">
+            <summary>
+            获取当前业务节点模型可提交步骤
+            </summary>
+            <param name="flowid"></param>
+            <param name="curActID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.getReceiveUser(System.String,System.String)">
+            <summary>
+            获取可提交节点的可接受人  需要修改 还没有实现
+            </summary>
+            <param name="flowid"></param>
+            <param name="actid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.getWfServie(System.String)">
+            <summary>
+            获取工作流服务的实例
+            </summary>
+            <param name="wfServiceName">工作流id：flowid</param>
+            <returns>实例，没有没找到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.engineAPI.GetReceiversByAct2(System.String,System.String,System.String,System.String)">
+            <summary>
+            指定步骤的默认接收人
+            </summary>
+            <param name="caseid"></param>
+            <param name="baid"></param>
+            <param name="nextActid"></param>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.EngineService.EngineManageService.wfForm">
+            <summary>
+            工作流表单定义
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineManageService.InitializeCacheForms">
+            <summary>
+            初始化工作流表单设置
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineManageService.GetModel(System.String)">
+            <summary>
+            获取工作流设置
+            </summary>
+            <param name="wid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.GetToolHelpInfo(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            拿到办理意见列表，可选择步骤，以及默认可选步骤的人员和默认接收人
+            </summary>
+            <param name="caseid"></param>
+            <param name="actid"></param>
+            <param name="flowid"></param>
+            <param name="baid"></param>
+            <param name="guid"></param>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.setCurActButtons(IWorkFlow.Engine.BusinessCase,IWorkFlow.Engine.ActivityModel,IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.BusinessModel,System.Collections.Generic.List{IWorkFlow.Engine.userButton},System.String)">
+            <summary>
+            根据业务实例，设置工作流的按钮的具体参数，包括发送步骤和接收人
+            </summary>
+            <param name="bizCase"></param>
+            <param name="curActModel"></param>
+            <param name="_curBizAct"></param>
+            <param name="bizModel"></param>
+            <param name="userButtons"></param>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.getSplitBA(IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.BusinessCase)">
+            <summary>
+            获得指定节点的发起分流节点
+            </summary>
+            <param name="ba">指定节点</param>
+            <param name="bizCase">业务实例</param>
+            <returns>返回发起的分流节点，没有返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.getChildrenDoingBA(IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.BusinessCase)">
+            <summary>
+            获得指定分流节点的所有后续节点
+            </summary>
+            <param name="ba">分流节点</param>
+            <param name="bizCase">业务实例</param>
+            <returns>没有的返回无数据的list</returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.CaseBack(System.String,System.String,System.String,System.String)">
+            <summary>
+            退件
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="userid"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.sendtoOther(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            转办
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="userid"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.GetNeedActAndReceivers(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            当前可选发送步骤及默认步骤的可选接收人
+            </summary>
+            <param name="flowid"></param>
+            <param name="actid"></param>
+            <param name="caseid"></param>
+            <param name="userid"></param>
+            <param name="baid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.GetReceiversByAct(System.String,System.String,System.String,System.String,System.String)">
+            切换步骤的时候获取提交节点的信息，包括默认接受人和可选接受人
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.PassToAct">
+            初始化数据库中的业务节点边中节点类型的字段acttype
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.GetReceiversByAct2(IWorkFlow.Engine.ActivityModel,IWorkFlow.Engine.BusinessCase,System.String,IWorkFlow.Engine.BusinessActivity)">
+            <summary>
+            获取指定节点的可接受人和默认接受人
+            </summary>
+            <param name="actModel"></param>
+            <param name="bizCase"></param>
+            <param name="userid"></param>
+            <param name="curAct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.RevocationMyCase(System.String,System.String,System.String,System.String)">
+            <summary>
+            收回业务
+            </summary>
+            <param name="caseid">业务id</param>
+            <param name="userid">当前用户</param>
+            <param name="baid">当前选中的节点</param>
+            <param name="curBaid">需要收回的节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.RevocationSubAct(System.String,System.String,System.String)">
+            <summary>
+            撤回会签和传阅
+            </summary>
+            <param name="caseid"></param>
+            <param name="userid"></param>
+            <param name="baids">要撤回的步骤id列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.SetGestor(System.String,System.String,System.String)">
+            <summary>
+            设置当前业务的某节点为主办人
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.sendCoo(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            发送会签、子节点、传阅
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="userId"></param>
+            <param name="recivers"></param>
+            <param name="receActid"></param>
+            <param name="guid"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.getCaseCount(System.String,System.String)">
+            <summary>
+            业务统计
+            </summary>
+            <param name="userid"></param>
+            <param name="flowid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.recycleCase(System.String,System.String)">
+            <summary>
+            废弃件管理
+            </summary>
+            <param name="userid"></param>
+            <param name="flowid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.EngineService.oldCase(System.String,System.String)">
+            <summary>
+            僵尸业务管理，半年以上没有操作的业务
+            </summary>
+            <param name="userid"></param>
+            <param name="flowid"></param>
+            <returns></returns>
+        </member>
+        <member name="F:IWorkFlow.EngineService.EngineService.remakeObect.doneTime">
+            <summary>
+            滞留时间
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.EngineService.IWorkflowService">
+            <summary>
+            工作流服务的接口协议，注意每个接口都需要实现，删除未实现异常NotImplementedException！！！
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.EngineService.IWorkflowService.GetData(System.String,System.String,System.String)">
+            <summary>
+            获取业务数据
+            </summary>
+            <param name="userid"></param>
+            <param name="caseid"></param>
+            <param name="baid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.IWorkflowService.send(System.String,System.String,System.String)">
+            <summary>
+            发送
+            </summary>
+            <param name="BizParams"></param>
+            <param name="userid"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.IWorkflowService.saveCase(System.Object,System.String,System.Data.IDbTransaction,System.Object)">
+            <summary>
+            保存，用于通过代码创建业务的情况
+            </summary>
+            <param name="content">表单内容</param>
+            <param name="userid">当前用户</param>
+            <param name="tran">事务</param>
+            <param name="BizParams">工作流参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.IWorkflowService.getDescript(System.String,System.String,System.String)">
+            <summary>
+            获得业务概述
+            </summary>
+            <param name="userid"></param>
+            <param name="caseid"></param>
+            <param name="baid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.IWorkflowService.deleteCase(System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            删除业务
+            </summary>
+            <param name="caseid"></param>
+            <param name="userid"></param>
+            <param name="tran">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.IWorkflowService.stopCase(System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            停办业务
+            </summary>
+            <param name="caseid"></param>
+            <param name="userid"></param>
+            <param name="tran">事务</param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.IWorkflowService.resumeCase(System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            恢复业务,包括删除的业务、停办的业务、办结的业务等等
+            </summary>
+            <param name="caseid"></param>
+            <param name="userid"></param>
+            <param name="tran">事务</param>
+        </member>
+        <member name="T:IWorkFlow.EngineService.wfConfig">
+            <summary>
+            工作流工作栏发送过来的数据模型，也就是工作流参数
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.guid">
+            <summary>
+            业务新建时的临时编号
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.receActid">
+            <summary>
+            下一步接收节点I
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.recivers">
+            <summary>
+            业务接收者
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.caseid">
+            <summary>
+            业务id
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.baid">
+            <summary>
+            办理节点id
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.flowid">
+            <summary>
+            业务流程id
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.actid">
+            <summary>
+            业务流程节点id
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.caseName">
+            <summary>
+            业务名称
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.remark">
+            <summary>
+            办理意见
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.limit">
+            <summary>
+            办理时限，工作日
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.ExpireDate">
+            <summary>
+            到期时间
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.attachkeys">
+            <summary>
+            附件
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.EngineService.wfConfig.Opera">
+            <summary>
+            操作
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.EngineService.DataService.LoadModel(System.String)">
+            <summary>
+            从文件读取业务模型
+            </summary>
+            <param name="flowID"></param>
+        </member>
+        <member name="M:IWorkFlow.EngineService.RoleService.GetUserCnName(System.String)">
+            <summary>
+            获取中文名
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.EngineService.RoleService.UserInRole(System.String,System.String)">
+            <summary>
+            判断用户是否在指定角色
+            </summary>
+            <param name="uid"></param>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
+        <member name="P:IWorkFlow.ORM.FX_CaseR.StartCaseid">
+            <summary>
+            前序业务id
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.ORM.FX_CaseR.StartBaid">
+            <summary>
+            前序业务发起步骤
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.ORM.FX_CaseR.NextCaseid">
+            <summary>
+            后续业务id
+            </summary>
+        </member>
+    </members>
+</doc>

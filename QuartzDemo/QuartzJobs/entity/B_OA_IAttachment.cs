@@ -28,13 +28,7 @@ namespace QuartzDemo.QuartzJobs.entity
 
         [DataField("WDDX", "B_OA_IAttachment")]
         public string WDDX { get; set; }
-
-        [DataField("WDYYR", "B_OA_IAttachment")]
-        public string WDYYR { get; set; }
-
-        [DataField("WDZT", "B_OA_IAttachment")]
-        public string WDZT { get; set; }
-
+        
         [DataField("WDMS", "B_OA_IAttachment")]
         public string WDMS { get; set; }
 
@@ -43,15 +37,9 @@ namespace QuartzDemo.QuartzJobs.entity
 
         [DataField("WDLJ", "B_OA_IAttachment")]
         public string WDLJ { get; set; }
-
-        [DataField("SYSTEMID", "B_OA_IAttachment")]
-        public string SYSTEMID { get; set; }
-
+        
         [DataField("WDBT", "B_OA_IAttachment")]
         public string WDBT { get; set; }
-
-        [DataField("DQBB", "B_OA_IAttachment")]
-        public string DQBB { get; set; }
 
         [DataField("WDHZ", "B_OA_IAttachment")]
         public string WDHZ { get; set; }

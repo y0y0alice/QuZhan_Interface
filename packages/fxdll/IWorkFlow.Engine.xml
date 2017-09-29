@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IWorkFlow.Engine</name>
+    </assembly>
+    <members>
+        <member name="M:IWorkFlow.Engine.CaseContent.OnTimer(System.Object,System.EventArgs)">
+            <summary>
+            算超时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.Create(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            创建业务实例
+            </summary>
+            <param name="flowID"></param>
+            <param name="creater"></param>
+            <param name="name"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.addCase(IWorkFlow.Engine.BusinessCase)">
+            <summary>
+            将业务加入到缓存
+            </summary>
+            <param name="bizCase"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.Send(System.String,System.String,System.Collections.Generic.List{IWorkFlow.Engine.ReceiverInfo},System.String,System.Object,System.String)">
+            <summary>
+            发送
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="receInfo"></param>
+            <param name="suid"></param>
+            <param name="args"></param>
+            <param name="remark"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.SetGestor(System.String,System.String,System.String,System.Object)">
+            <summary>
+            设置业务的主办人
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.SetExitGestor(System.String,System.String,System.String,System.Object)">
+            <summary>
+            退出主办
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.SetCaseExpireDate(System.String,System.String,System.DateTime)">
+            <summary>
+            设置业务到期时间
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID">如果为空则修改整个业务办理期限</param>
+            <param name="expireDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.Revocation(System.String,System.String,System.String,System.String)">
+            <summary>
+            收回业务
+            </summary>
+            <param name="caseID">业务id</param>
+            <param name="userid">当前用户</param>
+            <param name="baid">发起收回的提交步骤</param>
+            <param name="curBaid">需要收回的步骤</param>
+            <returns>返回收回的步骤和涉及的用户id</returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.Delete(System.String,System.String,System.Object)">
+            <summary>
+            删除,如果 userID 为"",则自动设置为当前待办用户之一
+            </summary>
+            <param name="caseID"></param>
+            <param name="userID"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.Back(System.String,System.String,System.String,System.Object,System.String)">
+            <summary>
+            回退
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="suid"></param>
+            <param name="args"></param>
+            <param name="remark"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.EndAct(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            结束当前步骤办理，主要是用于：协同、子节点、会签、分流
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="senderid"></param>
+            <param name="remark"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.End(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            办结
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="senderid"></param>
+            <param name="remark"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.EntrustCase(System.String,System.String,System.String,System.Object)">
+            <summary>
+            委托他人办理业务
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="euid"></param>
+            <param name="args">事务标记</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.setCooActDone(IWorkFlow.Engine.BusinessCase,IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.BusinessActivity,System.Object)">
+            <summary>
+            办结当前的协同节点
+            </summary>
+            <param name="bizCase"></param>
+            <param name="sendBa"></param>
+            <param name="receBa"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.OnTransEvent(IWorkFlow.Engine.BusinessCase,IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.BusinessActivity)">
+            <summary>
+            连接弧事件
+            </summary>
+            <param name="bizCase"></param>
+            <param name="sendAct"></param>
+            <param name="receAct"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.getSplitBA(IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.BusinessCase)">
+            <summary>
+            获得指定节点的发起分流节点，如果是输入的分流节点就返回自己！如果是合流节点后续节点则返回null
+            </summary>
+            <param name="ba">指定节点</param>
+            <param name="bizCase">业务实例</param>
+            <returns>返回发起的分流节点，没有返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.getChildrenDoingBA(IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.BusinessCase)">
+            <summary>
+            获得指定分流节点的所有后续节点
+            </summary>
+            <param name="ba">分流节点</param>
+            <param name="bizCase">业务实例</param>
+            <returns>没有的返回无数据的list</returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.CaseContent.execSend(IWorkFlow.Engine.BusinessCase,IWorkFlow.Engine.BusinessActivity,IWorkFlow.Engine.ActivityModel,System.Collections.Generic.List{IWorkFlow.Engine.TransInfo},System.Object,System.String)">
+            <summary>
+            数据验证之后的发送调用
+            </summary>
+            <param name="bizCase"></param>
+            <param name="bizAct"></param>
+            <param name="actModel"></param>
+            <param name="tis"></param>
+            <param name="remark">业务发送的意见</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.LoadModel(System.String)">
+            <summary>
+            加载制定的业务模型
+            </summary>
+            <param name="flowID"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.getAnyCase(System.String)">
+            <summary>
+            从数据库获取业务实体
+            </summary>
+            <param name="caseid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.ReLoadOneCase(System.String,System.Object)">
+            <summary>
+            根据caseid重置缓存，取消办结或撤销删除
+            </summary>
+            <param name="caseid"></param>
+            <param name="tran"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.Create(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            创建业务
+            </summary>
+            <param name="flowID"></param>
+            <param name="creater"></param>
+            <param name="name"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.Send(System.String,System.String,System.Collections.Generic.List{IWorkFlow.Engine.ReceiverInfo},System.String,System.String,System.Object)">
+            <summary>
+            发送业务
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="ris"></param>
+            <param name="suid"></param>
+            <param name="remark"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.End(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            办结业务
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="suid"></param>
+            <param name="remark"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.Back(System.String,System.String,System.String,System.Object,System.String)">
+            <summary>
+            回退业务
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID"></param>
+            <param name="suid"></param>
+            <param name="args"></param>
+            <param name="remark"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.Delete(System.String,System.String,System.Object)">
+            <summary>
+            删除业务 只有当前唯一在办用户可以删除
+            </summary>
+            <param name="caseID"></param>
+            <param name="creater"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.SetCaseExpireDate(System.String,System.String,System.DateTime)">
+            <summary>
+            修改设置业务的到期时限 已经作废，使用CContent对象相应的函数
+            </summary>
+            <param name="caseID"></param>
+            <param name="baID">如果此值为空，则为设置业务到期，如果有值，则为设置相应的节点时限</param>
+            <param name="expireDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.addLabel(System.String,System.String,System.String)">
+            <summary>
+            添加标签
+            </summary>
+            <param name="caseID"></param>
+            <param name="baid"></param>
+            <param name="label"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.delLabel(System.String,System.String,System.String)">
+            <summary>
+            删除标签
+            </summary>
+            <param name="caseID"></param>
+            <param name="baid"></param>
+            <param name="label"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.setCaseName(System.String,System.String,System.Object)">
+            <summary>
+            设置业务名称
+            </summary>
+            <param name="caseID"></param>
+            <param name="newName"></param>
+            <param name="objs"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.WorkFLowChangeState(System.String,System.String,System.String,IWorkFlow.Engine.CaseActState,System.Object)">
+            <summary>
+            修改业务实例当前状态
+            </summary>
+            <param name="caseID"></param>
+            <param name="baid"></param>
+            <param name="remark"></param>
+            <param name="NewState"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.GetReceiveActs(System.String,System.String,System.Boolean)">
+            <summary>
+            获取可接收节点，准备作废，建议使用 MContent.GetReceiveActs
+            </summary>
+            <param name="flowID"></param>
+            <param name="actID"></param>
+            <param name="isSpSend"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.GetExpireDate(System.Int32,System.DateTime)">
+            <summary>
+            计算办理期限
+            </summary>
+            <param name="limit"></param>
+            <param name="startDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.beginTransaction(System.String)">
+            <summary>
+            启动事务
+            </summary>
+            <param name="caseid"></param>
+            <returns>事务编号guid</returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.commitTransaction(System.String)">
+            <summary>
+            提交事务
+            </summary>
+            <param name="guid">事务编号guid</param>
+        </member>
+        <member name="M:IWorkFlow.Engine.EngineHost.rollbackTransaction(System.String)">
+            <summary>
+            回滚事务
+            </summary>
+            <param name="guid">事务编号guid</param>
+        </member>
+        <member name="P:IWorkFlow.Engine.EngineHost.MContent">
+            <summary>
+            业务模型集合
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.Engine.EngineHost.CContent">
+            <summary>
+            业务实例集合
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Engine.userButton">
+            <summary>
+            各几点的自定义按钮
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Engine.ActivityModel">
+            <summary>
+            业务节点模型
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Engine.ActivityType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Engine.BusinessActivity">
+            <summary>
+            节点实例
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Engine.BusinessCase">
+            <summary>
+            业务实例
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Engine.BusinessModel">
+            <summary>
+            业务模型
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.Engine.CaseItem">
+            <summary>
+            用于动态生成返回客户端的实例
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Engine.TransInfo.#ctor(IWorkFlow.Engine.ActivityModel,System.Nullable{System.Boolean})">
+            <summary>
+            初始化
+            </summary>
+            <param name="act">目标节点</param>
+            <param name="isTo">是否为下一步，主要是用于判断是否为分流节点的后续步骤</param>
+        </member>
+        <member name="M:IWorkFlow.Engine.ModelContent.GetLimitDate(System.String,System.String)">
+            <summary>
+            取得某流程或者某节点的时限
+            </summary>
+            <param name="flowID"></param>
+            <param name="actID"></param>
+            <returns></returns>
+        </member>
+        <member name="E:IWorkFlow.Engine.Services.ITimerService.TimerStart">
+            <summary>
+            计时器
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Engine.Services.ITimerService.GetWorkDate(System.DateTime,System.DateTime)">
+            <summary>
+            取得两个日期之间的工作日
+            </summary>
+            <param name="startDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.Services.ITimerService.GetExpireDate(System.Int32,System.DateTime)">
+            <summary>
+            自动计算取得业务超时时间
+            </summary>
+            <param name="limit"></param>
+            <param name="createDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.Services.ITimerService.GetFreeDate(System.DateTime)">
+            <summary>
+            通过到期日期取得两个剩余工作日
+            </summary>
+            <param name="expireDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.Services.ITimerService.GetFreeDate(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            取得两个工作日之间的剩余工作日
+            </summary>
+            <param name="startDate">开始日期</param>
+            <param name="endDate">结束日期</param>
+            <param name="dateCount">工作日</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.Services.ITimerService.GetFreeDate(System.DateTime,System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            取得两个工作日之间的剩余工作日
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <param name="dateCount"></param>
+            <param name="addDate">追加的日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.Engine.Services.IBaseService.Initialize">
+            <summary>
+            服务初始化
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.Engine.Services.IDataService.onUpdateBizCase(IWorkFlow.Engine.BusinessCase,IWorkFlow.Engine.BusinessActivity[],System.Object)">
+            <summary>
+            保存业务实例到数据库，替换除 创建/删除 以外其他接口
+            </summary>
+            <param name="bizCase">业务实例</param>
+            <param name="BizActs">办理节点实例数据</param>
+            <param name="args">事务</param> 
+        </member>
+    </members>
+</doc>

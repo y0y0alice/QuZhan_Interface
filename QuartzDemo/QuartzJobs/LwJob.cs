@@ -66,7 +66,6 @@ namespace QuartzDemo.QuartzJobs
                     detail.SelectSingleNode("SWLX").InnerText,
                     detail.SelectSingleNode("SWBT").InnerText,
                     detail.SelectSingleNode("SWLCBH").InnerText,
-                    detail.SelectSingleNode("SFZDJR").InnerText,
                     detail.SelectSingleNode("SWZT").InnerText,
                     detail.SelectSingleNode("FKYJ").InnerText,
                     detail.SelectSingleNode("BZ").InnerText
@@ -107,8 +106,39 @@ namespace QuartzDemo.QuartzJobs
             //附件详情
             XmlNodeList attachmentXmls = xmlNodeList[0].SelectSingleNode("FJXXS").SelectNodes("FJXX");
             InserOrUpdateAttachment(attachmentXmls, swbh, swlx, tran);
+            //处理意见
+            XmlNodeList suggestXmls = xmlNodeList[0].SelectSingleNode("CLYJS").SelectNodes("CLYJ");
+            InserOrUpdateSuggestion(suggestXmls, tran);
         }
 
+        public void InserOrUpdateSuggestion(XmlNodeList suggestionXmls, IDbTransaction tran)
+        {
+            foreach (XmlNode node in suggestionXmls)
+            {
+                string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(node);
+                SuggestionModel CLYJModel = JsonConvert.DeserializeObject<SuggestionModel>(json);
+                B_OA_ISuggestion suggestion = CLYJModel.CLYJ;
+                suggestion.Condition.Add("TID = " + suggestion.TID);
+                if (Utility.Database.QueryObject(suggestion, tran) == null)
+                {
+                    Utility.Database.Insert(suggestion, tran);
+                    _logger.InfoFormat("成功插入主表一条数据！");
+                }
+                else
+                {
+                    suggestion.Condition.Add("TID = " + suggestion.TID);
+                    Utility.Database.Update(suggestion, tran);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 附件的删除与修改
+        /// </summary>
+        /// <param name="attachmentXmls"></param>
+        /// <param name="swbh"></param>
+        /// <param name="swlx"></param>
+        /// <param name="tran"></param>
         public void InserOrUpdateAttachment(XmlNodeList attachmentXmls, string swbh, string swlx, IDbTransaction tran)
         {
             foreach (XmlNode node in attachmentXmls)
@@ -121,6 +151,7 @@ namespace QuartzDemo.QuartzJobs
                 if (Utility.Database.QueryObject(attachment, tran) == null)
                 {
                     Utility.Database.Insert(attachment, tran);
+                    _logger.InfoFormat("成功插入主表一条数据！");
                 }
                 else
                 {
@@ -168,6 +199,11 @@ namespace QuartzDemo.QuartzJobs
         public class FJXXS
         {
             public List<B_OA_IAttachment> FJXX;
+        }
+
+        public class SuggestionModel
+        {
+            public B_OA_ISuggestion CLYJ;
         }
 
         public class AttachmentModel

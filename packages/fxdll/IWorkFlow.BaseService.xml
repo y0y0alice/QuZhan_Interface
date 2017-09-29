@@ -1,0 +1,1399 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IWorkFlow.BaseService</name>
+    </assembly>
+    <members>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaBorder.Color">
+            <summary>
+            边框颜色
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaBorder.Style">
+            <summary>
+            边框样式
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaBorder.Radius">
+            <summary>
+            圆角边框的圆角半径
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.Captcha.BorderStyle">
+            <summary>
+            边框样式
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.BorderStyle.None">
+            <summary>
+            无边框
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.BorderStyle.Rectangle">
+            <summary>
+            矩形边框
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.BorderStyle.RoundRectangle">
+            <summary>
+            圆角边框
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaColor.#ctor">
+            <summary>
+            初始化 CaptchaColor 对象的实例
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaColor.#ctor(System.Collections.Generic.IEnumerable{System.Drawing.Color})">
+            <summary>
+            初始化 CaptchaColor 对象的实例
+            </summary>
+            <param name="colors"></param>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaColor.Colors">
+            <summary>
+            获取当前颜色集合
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaColor.Next">
+            <summary>
+            获取一个随机颜色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaColor.Next(System.Int32)">
+            <summary>
+            随机获取指定个数的字体
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.BaseService.Captcha.CaptchaFontFamily">
+            <summary>
+            验证码图片所需的字体
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.#ctor">
+            <summary>
+            初始化字体集合对象的实例
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            初始化字体集合对象的实例
+            </summary>
+            <param name="fonts"></param>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.FontFamily">
+            <summary>
+            获取的当前字体集合
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.Add(System.String)">
+            <summary>
+            添加一个字体
+            </summary>
+            <param name="font"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.AddRange(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            将字体集合添加到当前集合列表中
+            </summary>
+            <param name="fonts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.Remove(System.String)">
+            <summary>
+            移除一个字体
+            </summary>
+            <param name="font"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.Clear">
+            <summary>
+            清空当前所有字体集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.Next">
+            <summary>
+            获取一个随机字体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaFontFamily.Next(System.Int32)">
+            <summary>
+            随机获取指定个数的字体
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.BaseService.Captcha.CaptchaOptions">
+            <summary>
+            生成验证码图片的参数
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.GaussianDeviation">
+            <summary>
+            图片高斯模糊的阀值,默认为 0
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.Broder">
+            <summary>
+            是否显示边框
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.FontWarp">
+            <summary>
+            字体间距级别
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.Width">
+            <summary>
+            图片宽度
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.Height">
+            <summary>
+            图片高度
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.TextLength">
+            <summary>
+            字符个数
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.Background">
+            <summary>
+            背景噪点级别
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.Line">
+            <summary>
+            线条噪点
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.FontFamily">
+            <summary>
+            字体集合
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.Text">
+            <summary>
+            字符集合
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaOptions.Colors">
+            <summary>
+            字体颜色集合
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaPoint.Next(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取一个指定 X 和 Y 坐标限定值之间的随机位置
+            </summary>
+            <param name="xmin"></param>
+            <param name="xmax"></param>
+            <param name="ymin"></param>
+            <param name="ymax"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaPoint.Next(System.Drawing.Rectangle)">
+            <summary>
+            随机获取一个 x 和 y 坐标
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaResult.Bitmap">
+            <summary>
+            图片对象
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.CaptchaResult.Text">
+            <summary>
+            图片上的文字
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaText.#ctor">
+            <summary>
+            初始化 CaptchaText 对象的实例
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.CaptchaText.#ctor(System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            初始化 CaptchaText 对象的实例
+            </summary>
+            <param name="texts"></param>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.FluentCaptcha.Options">
+            <summary>
+            生成图片的参数
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.GetRoundRectangle(System.Drawing.Rectangle,System.Int32)">
+            <summary>
+            根据普通矩形得到圆角矩形的路径
+            </summary>
+            <param name="rectangle">原始矩形</param>
+            <param name="r">半径</param>
+            <returns>图形路径</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.TextPath(System.String,System.Drawing.Font,System.Drawing.Rectangle)">
+            <summary>
+            获取一个字符的路径
+            </summary>
+            <param name="s"></param>
+            <param name="f"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.DrawTextPath(System.Drawing.Drawing2D.GraphicsPath,System.Drawing.Rectangle)">
+            <summary>
+            添加曲线
+            </summary>
+            <param name="textPath"></param>
+            <param name="rect"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.GetRandomLightColor">
+            <summary>
+            生成随机浅颜色
+            </summary>
+            <returns>randomColor</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.GetRandomDeepColor">
+            <summary>
+            生成随机深颜色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.DrawBackgroud">
+            <summary>
+            添加背景噪点
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.DrawLine">
+            <summary>
+            添加线条
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.DrawText">
+            <summary>
+            添加文字
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.DrawBroder">
+            <summary>
+            添加边框
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.Atomized">
+            <summary>
+            实现雾化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.FluentCaptcha.DrawImage">
+            <summary>
+            画图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:IWorkFlow.BaseService.Captcha.ICapatcha.Options">
+            <summary>
+            图片选项
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.ICapatcha.DrawBackgroud">
+            <summary>
+            添加背景噪点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.ICapatcha.DrawLine">
+            <summary>
+            添加线条
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.ICapatcha.DrawText">
+            <summary>
+            写文字
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.ICapatcha.DrawImage">
+            <summary>
+            画图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.ICapatcha.DrawBroder">
+            <summary>
+            添加边框
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.Captcha.ICapatcha.Atomized">
+            <summary>
+            雾化图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.BaseService.Captcha.NoiseLevel">
+            <summary>
+            噪点级别枚举
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.NoiseLevel.None">
+            <summary>
+            没有噪点
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.NoiseLevel.Low">
+            <summary>
+            低级噪点
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.NoiseLevel.Medium">
+            <summary>
+            中级噪点
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.NoiseLevel.High">
+            <summary>
+            高级噪点
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.Captcha.NoiseLevel.Extreme">
+            <summary>
+            严重噪点
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.commonHandler.getKeyvalue(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            用于系统配置功能
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.BaseService.dbManager">
+            <summary>
+            该模块主要是用于数据库管理，包括数据库表、实体生成等
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.dbManager.tableInfo.type">
+            <summary>
+            类别
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.dbManager.tableInfo.tableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.dbManager.tableInfo.cnName">
+            <summary>
+            中文名
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.dbManager.tableInfo.descript">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.dbManager.tableInfo.keyFieldName">
+            <summary>
+            关键字
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.HttpRuntimeCache">
+            <summary>
+            HttpRuntimeCache实现，HttpRuntime.Cache为线程安全类
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.cacheAPI">
+            <summary>
+            缓存API
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.cacheAPI.get(System.String,System.Func{System.Object})">
+            <summary>
+            从缓存中获取指定键的值，并提供可选的失败回调
+            </summary>
+            <param name="key"></param>
+            <param name="nullFunc"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.cacheAPI.insert(System.String,System.Object,System.Object)">
+            <summary>
+            把指定的键值对插入到缓存中，并提供可选的依赖处理
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="dependency"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.cacheAPI.update(System.String,System.Object)">
+            <summary>
+            根据提供的键更新指定的值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.cacheAPI.remove(System.String)">
+            <summary>
+            从缓存中移除某项
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="T:IWorkFlow.BaseService.ICache">
+            <summary>
+            缓存接口
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.ICache.get(System.String,System.Func{System.Object})">
+            <summary>
+            从缓存中获取指定键的值，并提供可选的失败回调
+            </summary>
+            <param name="key"></param>
+            <param name="nullFunc"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.ICache.insert(System.String,System.Object,System.Object)">
+            <summary>
+            把指定的键值对插入到缓存中，并提供可选的依赖处理
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="dependency"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.ICache.update(System.String,System.Object)">
+            <summary>
+            根据提供的键更新指定的值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.ICache.remove(System.String)">
+            <summary>
+            从缓存中移除某项
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="T:IWorkFlow.BaseService.iWebOfficeService">
+            <summary>
+            金格控件的相关文档服务
+            xzk 2016年5月27日
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.iWebOfficeService.anonymity">
+            <summary>
+            匿名
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.iWebOfficeService.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            下载/上传
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.MsgServerForWebOffice">
+            <summary>
+            对上下文内容的封装
+            2016年5月27日
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.MsgServerForWebOffice._loadFileBody">
+            <summary>
+            （需要下载的）文件的字节数组
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.MsgServerForWebOffice._postFile">
+            <summary>
+            上传过来的需要保存的文件
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.MsgServerForWebOffice._isLoadFile">
+            <summary>
+            是否加载文件的
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.MsgServerForWebOffice._sendType">
+            <summary>
+            发送的类型
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.MsgServerForWebOffice._requestParamsDic">
+            <summary>
+            请求的参数字典
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.MsgServerForWebOffice._responseParamsDic">
+            <summary>
+            返回的参数字典
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.GetSendType">
+            <summary>
+            获取发送的内容类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.SetSendType(System.String)">
+            <summary>
+            设置发送的内容的类型
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.LoadRequest(System.Web.HttpRequest)">
+            <summary>
+            加载请求
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.SetMsgError(System.String)">
+            <summary>
+            设置出错的信息
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.SetMsgResponseInfo(System.String,System.String)">
+            <summary>
+            设置响应返回的信息
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.GetMsgByName(System.String)">
+            <summary>
+            根据参数名称获取对应的参数值
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.MsgFileLoad(System.String)">
+            <summary>
+            加载指定路径的文档文件
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.MsgFileSave(System.String)">
+            <summary>
+            把文件保存到指定的路径
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.MsgServerForWebOffice.Send(System.Web.HttpResponse)">
+            <summary>
+            响应请求，发送返回信息
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.JPushMessageUtility.UseMobileNotification">
+            <summary>
+            是否使用消息推送通知
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.JPushMessageUtility.GetAppidFromContext(System.Web.HttpContext)">
+            <summary>
+            从当前上下文解析出appid
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.JPushMessageUtility.LoginoutNotification(System.Web.HttpContext)">
+            <summary>
+            当前用户退出,设定清理函数
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.JPushMessageUtility.IsDeviceAllowed(System.String)">
+            <summary>
+            根据设备id判断是否允许设备登陆:设备不存在或者allowOrigin为true则允许登陆
+            </summary>
+            <param name="registrationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.JPushMessageUtility.DeleteUserDevice(System.String)">
+            <summary>
+            需要某种方式记下这个appid
+            </summary>
+            <param name="appid"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.JPushMessageUtility.GetDeviceByUserid(System.String)">
+            <summary>
+            根据userid获取设备集合，一个账号可能有多个设备
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.JPushMessageUtility.SendNotification(IWorkFlow.BaseService.cMsg)">
+            <summary>
+            发送手机通知，参考:http://docs.jpush.io/server/csharp_sdk/
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:IWorkFlow.BaseService.SignalRStartup">
+            <summary>
+            signalR的初始化类
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.SignalRStartup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            启动signalR
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="T:IWorkFlow.BaseService.ErrorHandlingPipelineModule">
+            <summary>
+            错误处理
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.BaseHub">
+             <summary>
+            集成器基类，继承该类可获得用户和连接的管理功能
+             </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.BaseHub.OnConnected">
+            <summary>
+            连接上服务端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.BaseHub.OnDisconnected(System.Boolean)">
+            <summary>
+            断开连接，客户端进行了刷新等操作
+            </summary>
+            <param name="stopCalled"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.BaseHub.OnReconnected">
+            <summary>
+            重新连接上，一般是网站重启
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.BaseHub.pullMessage(System.String)">
+            <summary>
+            从服务端拉取当前用户的消息,可重载
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.BaseHub.pushMessage(System.String,System.String,System.String)">
+            <summary>
+            向指定的人发送消息，供客户端调用
+            </summary>
+            <param name="userid">为all表示发送给所有人,为others表示除自己外的其他人或者分号分隔的用户id</param>
+            <param name="content">发送的内容</param>
+            <param name="clientFunctionName">调用的客户端函数</param>
+        </member>
+        <member name="T:IWorkFlow.BaseService.signalrAPI">
+            <summary>
+            signalR API，提供连接和用户的关系管理，使用signalR进行对指定用户消息发送等功能,
+            注：若要全部发，则继承hub类，或者baseHub类（继承了连接管理功能）
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.signalrAPI.userConnectIDs">
+            <summary>
+            用户和signalR连接ID的字典表
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.getSessionId(Microsoft.AspNet.SignalR.Hubs.HubCallerContext)">
+            <summary>
+            根据signalR的调用上下文获取会话id
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.addUserConnectR(System.String,System.String)">
+            <summary>
+            添加userid和连接id之间的映射
+            </summary>
+            <param name="connectid">连接id</param>
+            <param name="userid">用户id</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.delUserConnectR(System.String,System.String)">
+            <summary>
+            根据指定的连接id移除连接
+            </summary>
+            <param name="connectid">连接id</param>
+            <param name="userid">用户id,默认为空，指定值则移除该用户对应的所有连接id</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.sendMessage(System.String,System.Object,System.String)">
+             <summary>
+            给指定的用户发送消息，默认客户端的函数叫sendToClient
+             </summary>
+             <param name="userid">单个用户,all表示发送到全部</param>
+             <param name="msg">消息内容</param>
+             <param name="clientFunctionName">客户端的函数名称</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.sendMessage(System.Collections.Generic.List{System.String},System.Object,System.String)">
+             <summary>
+            给指定的用户发送消息，默认客户端的函数叫sendToClient
+             </summary>
+             <param name="userids">多个用户,all表示发送到全部</param>
+             <param name="msg">消息内容</param>
+             <param name="clientFunctionName">客户端的函数名称</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.sendMessage``1(System.String,System.Object,System.String)">
+             <summary>
+            给指定的用户发送消息，默认客户端的函数叫sendToClient
+             </summary>
+             <typeparam name="T">继承Hub的类</typeparam>
+             <param name="userid">单个用户,all表示发送到全部</param>
+             <param name="msg">消息内容</param>
+             <param name="clientFunctionName">客户端的函数名称</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.sendMessage``1(System.Collections.Generic.List{System.String},System.Object,System.String)">
+            <summary>
+            给指定的用户发送消息，默认客户端的函数叫sendToClient
+            </summary>
+            <typeparam name="T">继承Hub的类</typeparam>
+            <param name="userids">用户列表</param>
+            <param name="msg"></param>
+            <param name="clientFunctionName">客户端的函数名称</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.signalrAPI.sendMessage(System.Object,System.Object,System.String)">
+            <summary>
+            根据指定的上下文，客户端发送类别发送消息
+            </summary>
+            <param name="client">指定的客户端类别，可转化成IClientProxy</param>
+            <param name="msg">消息实体</param>
+            <param name="clientFunctionName">客户端的函数名称</param>
+        </member>
+        <member name="T:IWorkFlow.BaseService.msgAPI">
+            <summary>
+            todo: userMsgDict里面存在的数据和数据库有不一致的可能
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.msgAPI.realTimeMsgTypes">
+            <summary>
+            实时消息类型
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.msgAPI.permanentMsgTypes">
+            <summary>
+            永久消息类型
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.msgAPI.userMsgDict">
+            <summary>
+            消息集合
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.msgAPI.addMsg(IWorkFlow.BaseService.cMsg)">
+            <summary>
+            新建消息提醒,msg.recipient="all"代表群发，多个用户使用;隔开
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.msgAPI.delMsg(System.String,System.String)">
+            <summary>
+            删除消息提醒
+            </summary>
+            <param name="guid">消息的guid</param>
+            <param name="userid">接收用户id</param>
+        </member>
+        <member name="T:IWorkFlow.BaseService.cMsg">
+            <summary>
+            消息实体
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.guid">
+            <summary>
+            消息的唯一标识
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.text">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.descript">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.haveShow">
+            <summary>
+            是否已经显示过
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.recipient">
+            <summary>
+            接收人，如果有多个接收人,分号分隔
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.url">
+            <summary>
+            点击后跳转地址，没有index.html#
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.createTime">
+            <summary>
+            创建时间，默认用创建时间排序
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.type">
+             <summary>
+             类型，预留，用来将消息分类处理，比如说系统消息，即时消息、任务推送等，或短信提醒类消息等等
+            once/keeponeday/always/sys
+            不显示列表、保留一天、一直保留、直到已阅、系统消息
+             </summary>
+        </member>
+        <member name="P:IWorkFlow.BaseService.cMsg.style">
+            <summary>
+            样式
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.keyvalue">
+            <summary>
+            keyvalue表的操作
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.keyvalue.getValueByKey(System.String,System.String,System.String)">
+            <summary>
+            通过key获得value，最多支持三级的key
+            </summary>
+            <param name="k1"></param>
+            <param name="k2"></param>
+            <param name="k3"></param>
+            <returns>找不到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.keyvalue.setValueByKey(System.String,System.String,System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            设置指定key的value
+            </summary>
+            <param name="k1"></param>
+            <param name="k2"></param>
+            <param name="k3"></param>
+            <param name="value"></param>
+            <param name="tran">事务，默认为null</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.keyvalue.deleteByKey(System.String,System.String,System.String,System.Data.IDbTransaction)">
+            <summary>
+            删除指定的键值对
+            </summary>
+            <param name="k1"></param>
+            <param name="k2"></param>
+            <param name="k3"></param>
+            <param name="tran">事务，默认为null</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.keyvalue.getKey(System.String,System.String,System.String)">
+            <summary>
+            根据传入的子键值生成系统键
+            </summary>
+            <param name="key1"></param>
+            <param name="key2"></param>
+            <param name="key3"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.GISHandler.FillName(System.String,System.Int32,System.UInt64,System.Boolean)">
+            <summary>
+            将请求转成图片
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.GISHandler.GetGisPoint(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="queryInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.GISHandler.GetGisRecord(System.String)">
+            <summary>
+            获取GIS记录
+            </summary>
+            <param name="queryInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.GISHandler.GetLatLngByAddress(System.String,System.String)">
+            <summary>
+            通过地址获取坐标信息
+            </summary>
+            <param name="city"></param>
+            <param name="address"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.BaseService.GIS_Point">
+            <summary>
+            点GeoJson格式
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_Point.type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_Point.properties">
+            <summary>
+            属性字典
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_Point.geometry">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.GIS_Geometry">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_Geometry.type">
+            <summary>
+            类型（可选值：Point）
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_Geometry.coordinates">
+            <summary>
+            点坐标
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.GIS_PointQueryInfo">
+            <summary>
+            点获取时提供的信息类
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_PointQueryInfo.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_PointQueryInfo.LatFieldName">
+            <summary>
+            纬度坐标字段名称
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_PointQueryInfo.LngFieldName">
+            <summary>
+            经度坐标字段名称
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_PointQueryInfo.PropertiesFields">
+            <summary>
+            指定的字段（默认全部返回，如果IsExceptFields为true，则为排除的字段，其他字段信息都返回，且字段名为大写形式返回）
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_PointQueryInfo.IsExceptFields">
+            <summary>
+            是否排除指定的字段
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_PointQueryInfo.Where">
+            <summary>
+            Where过滤条件
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.GIS_RecordQueryInfo">
+            <summary>
+            获取GIS记录时提供的信息类
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_RecordQueryInfo.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_RecordQueryInfo.PropertiesFields">
+            <summary>
+            指定的字段（默认全部返回，如果IsExceptFields为true，则为排除的字段，其他字段信息都返回，且字段名为大写形式返回）
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_RecordQueryInfo.IsExceptFields">
+            <summary>
+            是否排除指定的字段
+            </summary>
+        </member>
+        <member name="F:IWorkFlow.BaseService.GIS_RecordQueryInfo.Where">
+            <summary>
+            Where过滤条件
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.PostAndGetStream(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             使用post方式访问目标网页，返回stream二进制流
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.PostAndGetByte(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             使用post方式访问目标网页，返回字节数组
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.PostAndGetBitmap(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             使用post方式访问目标网页，返回图片
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.PostAndGetBitmap(System.String,System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+             使用post方式访问目标网页，返回文件
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.PostAndGetHtml(System.String,System.String,System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+             使用post方式访问目标网页，返回html页面
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.GetAndGetStream(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             使用get方式访问目标网页，返回stream二进制流
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.GetAndGetByte(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             使用get方式访问目标网页，返回字节数组
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.GetAndGetBitmap(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             使用get方式访问目标网页，返回图片
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.GetAndGetFile(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+             使用get方式访问目标网页，返回文件
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.HttpHelper.GetAndGetHtml(System.String,System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+             使用get方式访问目标网页，返回html页面
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.SuperTree">
+            <summary>
+            树结构
+            </summary>
+        </member>
+        <member name="T:IWorkFlow.BaseService.IWorkPrivilegeManage">
+            <summary>
+            权限管理服务(彭博新增)
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.IWorkUserManageHandler.ResetPWD(System.String)">
+            <summary>
+            重置密码
+            </summary>
+            <param name="editUserid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.OrgDataHandler.RemoveErroLogin(IWorkFlow.ORM.UserInfo)">
+            <summary>
+            登录成功，移除缓存中登录失败得错误信息
+            </summary>
+            <param name="userInfor"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.OrgDataHandler.AvoidForceLogin(IWorkFlow.ORM.UserInfo)">
+            <summary>
+            判断改用户是否录错过密码，避免暴力破解
+            </summary>
+            <param name="userInfor"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.OrgDataHandler.RecordErroLogin(System.String,System.String)">
+            <summary>
+            输入密码错误的，需要在缓存中记录
+            </summary>
+            <param name="userid"></param>
+            <param name="msg">登录失败的原因</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.OrgDataHandler.isRightPWD(System.String,System.String)">
+            <summary>
+            判断密码是否正确
+            </summary>
+            <param name="pwdindb">系统保存的密码</param>
+            <param name="loginPWD">用户登陆页面传来的密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.OrgDataHandler.SetuserConfig(System.String,System.String,System.String,System.String)">
+            <summary>
+            保存用户设置
+            </summary>
+            <param name="userid">用户id</param>
+            <param name="type">类型：uiconfig|portalconfig|userThemes</param>
+            <param name="content">内容</param>
+            <param name="userid2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.OrgDataHandler.TransformPWDSvc">
+            <summary>
+            将所有未加密的用户密码转换成MD5加密形式
+            </summary>
+            <param name="userid"></param>
+            <param name="type"></param>
+            <param name="content"></param>
+            <param name="userid2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IWorkFlow.BaseService.orgAPI">
+            <summary>
+            用户、部门、角色的功能调用
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUserInfo(System.String)">
+            <summary>
+            根据用户id获取用户名
+            </summary>
+            <param name="userid"></param>
+            <returns>如果没找到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUserList">
+             <summary>
+            获取用户列表
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUsername(System.String)">
+            <summary>
+            获取用户的中文名
+            </summary>
+            <param name="userid"></param>
+            <returns>如果没找到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUserRank(System.String)">
+            <summary>
+            获取用户排序号
+            </summary>
+            <param name="userid"></param>
+            <returns>没找打返回很大的一个数字</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUserDP(System.String)">
+            <summary>
+            获取用户所在部门id
+            </summary>
+            <param name="userid"></param>
+            <returns>没找到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUserDPS(System.String)">
+            <summary>
+            返回用户所在部门id，支持多个部门
+            </summary>
+            <param name="userid"></param>
+            <returns>返回部门id用;分割的字符串，比如p001;p002;p003;...</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.refreshUserlist">
+            <summary>
+            更新缓存的用户列表 userlist，如果修改了用户表、部门表，需要调用该函数刷新缓存
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.refreshRoleUserlist">
+            <summary>
+            更新缓存的角色用户列表 RoleUserlist，内容包括角色清单和每个角色对应的用户清单
+            如果修改了用户表、角色表、用户角色对照表则需要调用
+            </summary>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUsersByRole(System.String)">
+            <summary>
+            根据角色id返回所有角色用户
+            </summary>
+            <param name="rid"></param>
+            <returns>没有找到对应的角色返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getDepartmentName(System.String)">
+            <summary>
+            获得部门名称
+            </summary>
+            <param name="dpid"></param>
+            <returns>没找到返回null</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getPrivilegeByUserID(System.String)">
+            <summary>
+            查询当前用户所有的权限
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.getUserNameForDataTable(System.Data.DataTable,System.String,System.String,System.Boolean)">
+            <summary>
+            设置传入的数据集合里的人员名
+            </summary>
+            <param name="dt">集合</param>
+            <param name="useridCol">人员id列</param>
+            <param name="usernameCol">用户名列</param>
+            <param name="addCol">是否创建列，默认不创建</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.orgAPI.GetStaffList(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            获取全体人员的List结构，视情况IsFilterPause，是否过滤掉停用得用户
+            </summary>
+            <param name="Roles"></param>
+            <param name="IsFilterPause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.SkylandAttach.UploadFile(System.Web.HttpContext)">
+            <summary>
+            上传文件：{caseid:"",guid:"",baid:"",versionName:"",userid:""}
+                      {folder:"",version:"",versionName:"",userid:""}
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.SkylandAttach.SaveXmlHttpRequestFiles(System.String,System.Web.HttpContext)">
+            <summary>
+            通过XmlHttpRequest上传的
+            </summary>
+            <param name="path">目录路径</param>
+            <param name="context">Server对象</param>
+            <returns>返回文件大小</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.SkylandAttach.SaveFormFiles(System.String,System.Web.HttpPostedFile)">
+            <summary>
+            通过Form上传的
+            </summary>
+            <param name="path">保存的路径</param>
+            <param name="postFile">上传的文件</param>
+            <returns>返回文件大小</returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.SkylandAttach.DownLoadFile(System.Web.HttpContext,System.String,System.String,System.String)">
+            <summary>
+            获取压缩文件包
+            </summary>
+            <param name="compressFilePath">压缩文件路径</param>
+            <param name="files">添加到压缩包的文件集合</param>
+            <param name="newNames">新的文件名集合</param>
+            <returns>返回压缩后的文件路径</returns>
+             <summary>
+             下载文件，支持大文件的下载
+             </summary>
+             <param name="context">该次请求的上下文</param>
+             <param name="path">文件路径，支持相对于fileDir的相对路径</param>
+             <param name="type">表示文件夹类型，默认为FileDir，传递root表示网站根目录</param>
+            <param name="newFileName">新的文件名</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.SkylandAttach.GetImage(System.Web.HttpContext,System.String,System.String)">
+            <summary>
+            请求图片,常用于图片预览
+            </summary>
+            <param name="context">请求上下文</param>
+            <param name="path">文件路径，支持相对于fileDir的相对路径</param>
+            <param name="type">表示文件夹类型，默认为FileDir，传递root表示网站根目录</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.GetUserAttachList(System.String,System.String)">
+            <summary>
+            获取工作流附件列表信息
+            </summary>
+            <param name="caseid"></param>
+            <param name="guid">新建业务的guid</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.MoveFiles(System.String,System.String)">
+            <summary>
+            移动文件夹内的文件，并删除旧文件夹
+            </summary>
+            <param name="oldFolder"></param>
+            <param name="newFolder"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.GetFileVersionList(System.String,System.String)">
+            <summary>
+            获取附件版本列表
+            </summary>
+            <param name="folder">目录</param>
+            <param name="filename">文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.GetPathByType(System.String,System.String,System.Boolean)">
+            <summary>
+            根据指定的路径片段和指定的路径类型获取一个文件夹路径
+            </summary>
+            <param name="pathSegments">路径片段(如sendDoc/bangongshi/001)</param>
+            <param name="type">根路径类型(如FileDir、FileModelDir或者其他配置在serverConfig.json里的路径的键),默认为FileDir</param>
+            <param name="createDir">文件夹不存在时是否创建文件夹，默认为true</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.GetCompressBag(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            获取压缩包
+            </summary>
+            <param name="compressFilePath">压缩文件路径</param>
+            <param name="files">需要被压缩的文件列表</param>
+            <param name="newNames">需要被压缩的文件的新文件名，和files参数一一对应</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.DownLoadFile(System.Web.HttpContext,System.String,System.String,System.String)">
+             <summary>
+             下载文件，支持大文件的下载
+             </summary>
+             <param name="context">该次请求的上下文</param>
+             <param name="path">文件路径，支持相对于fileDir的相对路径</param>
+             <param name="type">表示文件夹类型，默认为FileDir，传递root表示网站根目录</param>
+            <param name="newFileName">新的文件名</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.GetImage(System.Web.HttpContext,System.String,System.String)">
+            <summary>
+            请求图片,常用于图片预览
+            </summary>
+            <param name="context">请求上下文</param>
+            <param name="path">文件路径，支持相对于fileDir的相对路径</param>
+            <param name="type">表示文件夹类型，默认为FileDir，传递root表示网站根目录</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.fileAPI.SaveUploadFile(System.Web.HttpContext,System.String,System.Func{System.String,System.Object},System.Action{System.Collections.Generic.List{System.String}})">
+            <summary>
+            保存上传文件
+            </summary>
+            <param name="context">请求上下文</param>
+            <param name="saveFoldPath">保存的目录</param>
+            <param name="newNameFunc">新文件名回调</param>
+            <param name="successCallback">保存成功回调</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.UIMakeUpHandler.GetConfig(System.String)">
+            <summary>
+            获得文件内容并加入缓存
+            </summary>
+            <param name="relativepath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.UIMakeUpHandler.ResultHandler(System.Collections.Generic.List{IWorkFlow.BaseService.UIMakeUpHandler.frameUrl},IWorkFlow.BaseService.UIMakeUpHandler.frameNavObj)">
+            <summary>
+            对UI返回结果进行处理,保证url里面有title属性
+            </summary>
+            <param name="children"></param>
+            <param name="tab"></param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.UIMakeUpHandler.getModelKeysByUserid(System.String,System.String)">
+            <summary>
+            根据用户获取指定类型的modelKey
+            </summary>
+            <param name="userid">用户id</param>
+            <param name="strType">key类型，多个类型用,分隔</param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.UIMakeUpHandler.getPrivilegeTypeOfModel(System.String,System.String)">
+            <summary>
+            根据指定的模块路径获取模块所属的权限大类
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.UIMakeUpHandler.GetUIPrivilegeConfig(System.String,System.Boolean@)">
+            <summary>
+            获取UI权限配置
+            </summary>
+            <param name="uimode"></param>
+            <param name="hasPortal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IWorkFlow.BaseService.UIMakeUpHandler.resolveUIPrivilegeKeys(System.Collections.Generic.List{IWorkFlow.BaseService.UIMakeUpHandler.frameUrl},System.Collections.Generic.List{System.String[]})">
+            <summary>
+            递归解析UI权限
+            </summary>
+            <param name="children"></param>
+            <param name="">lst</param>
+        </member>
+        <member name="M:IWorkFlow.BaseService.UIMakeUpHandler.GetPortalPrivilegeConfig(System.String,System.String)">
+            <summary>
+            获取门户权限配置
+            </summary>
+            <param name="uimode"></param>
+            <param name="portalconfig"></param>
+            <returns></returns>
+        </member>
+        <member name="P:IWorkFlow.ORM.FX_AttachMent.folder">
+            <summary>
+            也是目录名称
+            </summary>
+        </member>
+        <member name="P:IWorkFlow.ORM.FX_AttachMent.version">
+            <summary>
+            也是版本号
+            </summary>
+        </member>
+    </members>
+</doc>

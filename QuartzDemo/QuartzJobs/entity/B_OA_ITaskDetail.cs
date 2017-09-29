@@ -11,7 +11,6 @@ namespace QuartzDemo.QuartzJobs.entity
     [DataTableInfo("B_OA_ITaskDetail", "YWBH")]
     public class B_OA_ITaskDetail :  QueryInfo
     {
-        public B_OA_ITaskDetail(string USERID) { }
 
         public B_OA_ITaskDetail() { }
 
