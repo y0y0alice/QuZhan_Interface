@@ -33,6 +33,7 @@ namespace QuartzDemo.QuartzJobs
             }
         }
 
+        WebService1 service = new WebService1();
         /// <summary>
         /// 待收文任务列表
         /// </summary>
@@ -48,7 +49,7 @@ namespace QuartzDemo.QuartzJobs
             //XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
 
             //wsdl发布测试
-            WebService1 service = new WebService1();
+
             string returnXml = service.unReceiveTasks("qjc_lims_test");
             _logger.InfoFormat("接口连接成功!");
             XmlDocument xmlDocument = new XmlDocument();
@@ -94,11 +95,13 @@ namespace QuartzDemo.QuartzJobs
         public void taskDetail(string xtbh, string swbh, string swlx, IDbTransaction tran)
         {
             //本地测试
+            //XmlDocument xmlDocument = new XmlDocument();
+            //var dir = Directory.GetCurrentDirectory();
+            //string serverpath = dir + "\\taskDetai.xml";
+            //xmlDocument.Load(serverpath);
+            string xmlString = service.taskDetail(xtbh, swbh, swlx);
             XmlDocument xmlDocument = new XmlDocument();
-            var dir = Directory.GetCurrentDirectory();
-            string serverpath = dir + "\\taskDetai.xml";
-            xmlDocument.Load(serverpath);
-
+            xmlDocument.LoadXml(xmlString);
             XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
             //文档详情
             XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");

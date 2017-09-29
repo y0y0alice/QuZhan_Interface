@@ -1,102 +1,228 @@
-IF NOT EXISTS(SELECT * FROM sysobjects WHERE name = 'T_OA_JKFW_YBJSRWLB')
+IF NOT EXISTS(SELECT * FROM sysobjects WHERE name = 'B_OA_ITaskDetail')
 BEGIN
-CREATE TABLE T_OA_JKFW_YBJSRWLB  (
-  XTBH                VARCHAR(50),
-  USERID              VARCHAR(50),
-  YWBH                VARCHAR(50),
-  SWLX                VARCHAR(50),
-  SWBT                VARCHAR(1000),
-  SWLCBH              VARCHAR(50),
-  SWZT                VARCHAR(2),
-  FKYJ                VARCHAR(4000),
-  BZ                  VARCHAR(4000),
-  CJR                 VARCHAR(50),
-  CJSJ                DATETIME,
-  XGR                 VARCHAR(50),
-  XGSJ                DATETIME,
-  ORGID               VARCHAR(50),
-  SFZDJR              VARCHAR(50)
-)
+CREATE TABLE [dbo].[B_OA_ITaskDetail](
+	[USERID] [varchar](50) NULL,
+	[YWBH] [varchar](50) NULL,
+	[SWLX] [varchar](50) NULL,
+	[SWLCBH] [varchar](50) NULL,
+	[SWZT] [varchar](2) NULL,
+	[FKYJ] [varchar](4000) NULL,
+	[BZ] [varchar](1000) NULL,
+	[LCDYBH] [varchar](200) NULL,
+	[BZDYBH] [varchar](200) NULL,
+	[BZBH] [varchar](50) NULL,
+	[SWBT] [varchar](1000) NULL,
+	[TZNRTEXT] [text] NULL,
+	[TZNR] [text] NULL,
+	[TZJSR] [varchar](4000) NULL,
+	[SFYX] [char](1) NULL,
+	[YXJ] [char](1) NULL,
+	[JSFS] [varchar](1) NULL,
+	[ZXFK] [varchar](200) NULL,
+	[CJSJ] [datetime] NULL,
+	[CJR] [varchar](50) NULL,
+	[WRITER] [varchar](200) NULL,
+	[TITLETYPE] [varchar](50) NULL,
+	[TITLECOLOR] [varchar](50) NULL,
+	[TITLESIZE] [int] NULL,
+	[COPYFROM] [varchar](200) NULL,
+	[PCDATE] [datetime] NULL,
+	[SAVEPATH] [varchar](80) NULL,
+	[FILENAME] [varchar](30) NULL,
+	[FILEEXNAME] [varchar](20) NULL,
+	[SHR] [varchar](10) NULL,
+	[SHRQ] [datetime] NULL,
+	[QF] [varchar](200) NULL,
+	[NGRQ] [datetime] NULL,
+	[GLBH] [varchar](50) NULL,
+	[TZMB] [varchar](10) NULL,
+	[ZBDW] [varchar](50) NULL,
+	[FBR] [varchar](50) NULL,
+	[NGR] [varchar](50) NULL,
+	[NGSJ] [datetime] NULL,
+	[CSHGR] [varchar](50) NULL,
+	[HGSJ] [datetime] NULL,
+	[TGSSG] [varchar](100) NULL,
+	[TLDQF] [varchar](100) NULL,
+	[QFSJ] [datetime] NULL,
+	[TGXXID] [varchar](255) NULL,
+	[DXNR] [text] NULL,
+	[CSSHZT] [char](1) NULL,
+	[CHYJ] [varchar](4000) NULL,
+	[TZZT] [char](1) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+SET ANSI_PADDING OFF
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'业务编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'YWBH'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'收文类型' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SWLX'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'流程编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SWLCBH'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'收文状态' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SWZT'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'反馈意见' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'FKYJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'BZ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'流程定义编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'LCDYBH'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'步骤定义编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'BZDYBH'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'步骤编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'BZBH'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'收文标题' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SWBT'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'通知内容' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TZNRTEXT'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'通知接收人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TZJSR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SFYX'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'优先级' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'YXJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'接收方式' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'JSFS'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'在线反馈' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'ZXFK'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'CJSJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'CJR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'标题字体' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TITLETYPE'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'标题字体颜色' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TITLECOLOR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'主办单位' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'COPYFROM'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'核稿日期' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'PCDATE'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'html文件保存目录' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SAVEPATH'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'通知公告文件名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'FILENAME'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文件类型（后缀名）' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'FILEEXNAME'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'审核人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SHR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'审核日期' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'SHRQ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'签发人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'QF'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'拟稿日期' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'NGRQ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'附件关联编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'GLBH'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'通知模版' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TZMB'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'通知公告主办单位' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'ZBDW'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'发布人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'FBR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'拟稿人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'NGR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'拟稿时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'NGSJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'通知公告处室核稿人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'CSHGR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'厅公室审稿' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TGSSG'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'厅领导签发' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TLDQF'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'签发时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'QFSJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'短信内容' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'DXNR'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'处室审核状态' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'CSSHZT'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'签发意见' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'CHYJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'通知状态' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ITaskDetail', @level2type=N'COLUMN',@level2name=N'TZZT'
+end
+go
 
 
-declare @CmtT_OA_JKFW_YBJSRWLB varchar(128)
-select @CmtT_OA_JKFW_YBJSRWLB = user_name()
-execute sp_addextendedproperty 'MS_Description',
-'已被接收任务列表',
-'user', @CmtT_OA_JKFW_YBJSRWLB, 'table', 'T_OA_JKFW_YBJSRWLB'
-
-execute sp_addextendedproperty 'MS_Description',
-'系统编号',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'XTBH'
-
-
-execute sp_addextendedproperty 'MS_Description',
-'收文用户ID',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'USERID'
-
-
-execute sp_addextendedproperty 'MS_Description',
-'业务编号',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'YWBH'
-
-
-execute sp_addextendedproperty 'MS_Description',
-'收文类型',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWLX'
+IF NOT EXISTS(SELECT * FROM sysobjects WHERE name = 'B_OA_ISuggestion')
+BEGIN
+CREATE TABLE [dbo].[B_OA_ISuggestion](
+	[TID] [varchar](50) NULL,
+	[TZBH] [varchar](255) NULL,
+	[DM] [varchar](255) NULL,
+	[MC] [varchar](255) NULL,
+	[FKNR] [text] NULL,
+	[RRQ] [datetime] NULL,
+	[VIP] [varchar](255) NULL,
+	[ZT] [varchar](255) NULL,
+	[UID] [varchar](255) NULL,
+	[RUID] [varchar](255) NULL,
+	[CJR] [varchar](255) NULL,
+	[CJSJ] [datetime] NULL,
+	[XGR] [varchar](255) NULL,
+	[XGSJ] [datetime] NULL,
+	[ORGID] [varchar](255) NULL,
+	[FKRQ] [datetime] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 
-execute sp_addextendedproperty 'MS_Description',
-'收文标题',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWBT'
+SET ANSI_PADDING OFF
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'MC'
 
-execute sp_addextendedproperty 'MS_Description',
-'收文流程编号',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWLCBH'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'反馈内容' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'FKNR'
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'阅读日期' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'RRQ'
 
-execute sp_addextendedproperty 'MS_Description',
-'收文状态',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SWZT'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'状态' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'ZT'
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'阅读人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'RUID'
 
-execute sp_addextendedproperty 'MS_Description',
-'反馈意见',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'FKYJ'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'CJR'
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'CJSJ'
 
-execute sp_addextendedproperty 'MS_Description',
-'备注',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'BZ'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'XGR'
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'XGSJ'
 
-execute sp_addextendedproperty 'MS_Description',
-'创建人',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'CJR'
-
-
-execute sp_addextendedproperty 'MS_Description',
-'创建时间',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'CJSJ'
-
-
-execute sp_addextendedproperty 'MS_Description',
-'修改人',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'XGR'
-
-
-execute sp_addextendedproperty 'MS_Description',
-'修改时间',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'XGSJ'
-
-
-execute sp_addextendedproperty 'MS_Description',
-'组织编号',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'ORGID'
-
-execute sp_addextendedproperty 'MS_Description',
-'未说明',
- 'user', '', 'table', 'T_OA_JKFW_YBJSRWLB', 'column', 'SFZDJR'
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'反馈日期' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_ISuggestion', @level2type=N'COLUMN',@level2name=N'FKRQ'
+GO
 END
-Go
+
+
+IF NOT EXISTS(SELECT * FROM sysobjects WHERE name = 'B_OA_IAttachment')
+BEGIN
+CREATE TABLE [dbo].[B_OA_IAttachment](
+	[WDBH] [varchar](50) NULL,
+	[APPBH] [varchar](255) NULL,
+	[WDMC] [varchar](255) NULL,
+	[WDLX] [varchar](255) NULL,
+	[WDSX] [varchar](255) NULL,
+	[WDDX] [varchar](255) NULL,
+	[WDMS] [varchar](1000) NULL,
+	[WDZZ] [varchar](255) NULL,
+	[WDLJ] [varchar](1000) NULL DEFAULT (''),
+	[WDBT] [varchar](1000) NULL,
+	[WDHZ] [varchar](255) NULL,
+	[CJSJ] [datetime] NULL,
+	[CJR] [varchar](255) NULL
+) ON [PRIMARY]
+
+
+SET ANSI_PADDING OFF
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文档类型' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'WDLX'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文档属性' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'WDSX'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文档' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'WDDX'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文档路径' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'WDLJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文档标题' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'WDBT'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文档后缀' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'WDHZ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'CJSJ'
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'B_OA_IAttachment', @level2type=N'COLUMN',@level2name=N'CJR'
+END
+GO
 

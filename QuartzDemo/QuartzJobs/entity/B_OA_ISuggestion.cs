@@ -56,5 +56,7 @@ namespace QuartzDemo.QuartzJobs.entity
         [DataField("ORGID", "B_OA_ISuggestion")]
         public string ORGID { get; set; }
         
+        [DataField("FKRQ", "B_OA_ISuggestion")]
+        public DateTime? FKRQ { get; set; }
     }
 }

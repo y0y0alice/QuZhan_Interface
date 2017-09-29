@@ -37,6 +37,8 @@ namespace QuartzDemo.WebReference {
         
         private System.Threading.SendOrPostCallback unReceiveTasksOperationCompleted;
         
+        private System.Threading.SendOrPostCallback taskDetailOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -86,6 +88,9 @@ namespace QuartzDemo.WebReference {
         
         /// <remarks/>
         public event unReceiveTasksCompletedEventHandler unReceiveTasksCompleted;
+        
+        /// <remarks/>
+        public event taskDetailCompletedEventHandler taskDetailCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -206,6 +211,39 @@ namespace QuartzDemo.WebReference {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/taskDetail", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string taskDetail(string qjc_lims_test, string detialid, string type) {
+            object[] results = this.Invoke("taskDetail", new object[] {
+                        qjc_lims_test,
+                        detialid,
+                        type});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void taskDetailAsync(string qjc_lims_test, string detialid, string type) {
+            this.taskDetailAsync(qjc_lims_test, detialid, type, null);
+        }
+        
+        /// <remarks/>
+        public void taskDetailAsync(string qjc_lims_test, string detialid, string type, object userState) {
+            if ((this.taskDetailOperationCompleted == null)) {
+                this.taskDetailOperationCompleted = new System.Threading.SendOrPostCallback(this.OntaskDetailOperationCompleted);
+            }
+            this.InvokeAsync("taskDetail", new object[] {
+                        qjc_lims_test,
+                        detialid,
+                        type}, this.taskDetailOperationCompleted, userState);
+        }
+        
+        private void OntaskDetailOperationCompleted(object arg) {
+            if ((this.taskDetailCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.taskDetailCompleted(this, new taskDetailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -315,6 +353,32 @@ namespace QuartzDemo.WebReference {
         private object[] results;
         
         internal unReceiveTasksCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void taskDetailCompletedEventHandler(object sender, taskDetailCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class taskDetailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal taskDetailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
