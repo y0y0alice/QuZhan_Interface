@@ -76,7 +76,7 @@ namespace QuartzDemo.QuartzJobs
                     if (Utility.Database.QueryObject(receive, tran) == null)
                     {
                         Utility.Database.Insert(receive, tran);
-                        _logger.InfoFormat("成功插入主表一条数据！");
+                        _logger.InfoFormat("成功插入待收收文一条数据！");
                     };
                     //添加或者修改通知公告详细内容
                     taskDetail("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
@@ -122,12 +122,13 @@ namespace QuartzDemo.QuartzJobs
                 if (Utility.Database.QueryObject(suggestion, tran) == null)
                 {
                     Utility.Database.Insert(suggestion, tran);
-                    _logger.InfoFormat("成功插入主表一条数据！");
+                    _logger.InfoFormat("成功插入意见数据！");
                 }
                 else
                 {
                     suggestion.Condition.Add("TID = " + suggestion.TID);
                     Utility.Database.Update(suggestion, tran);
+                    _logger.InfoFormat("成功修改意见表数据！");
                 }
             }
         }
@@ -151,13 +152,14 @@ namespace QuartzDemo.QuartzJobs
                 if (Utility.Database.QueryObject(attachment, tran) == null)
                 {
                     Utility.Database.Insert(attachment, tran);
-                    _logger.InfoFormat("成功插入主表一条数据！");
+                    _logger.InfoFormat("成功插入附件表数据！");
                 }
                 else
                 {
                     attachment.Condition.Add("WDBH = " + attachment.WDBH);
                     attachment.Condition.Add("APPBH = " + attachment.APPBH);
                     Utility.Database.Update(attachment, tran);
+                    _logger.InfoFormat("成功修改附件表数据！");
                 }
             }
         }
@@ -182,12 +184,12 @@ namespace QuartzDemo.QuartzJobs
             if (Utility.Database.QueryObject(taskDetail, tran) == null)
             {
                 Utility.Database.Insert(taskDetail, tran);
-                _logger.InfoFormat("成功插入父表一条数据！");
+                _logger.InfoFormat("成功插入详情数据！");
             }
             else
             {
                 Utility.Database.Update(taskDetail, tran);
-                _logger.InfoFormat("成功修改父表一条数据！");
+                _logger.InfoFormat("成功修改详情一条数据！");
             }
         }
 
