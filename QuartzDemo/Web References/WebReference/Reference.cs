@@ -39,6 +39,8 @@ namespace QuartzDemo.WebReference {
         
         private System.Threading.SendOrPostCallback taskDetailOperationCompleted;
         
+        private System.Threading.SendOrPostCallback taskAttachmentsDownloadOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +93,9 @@ namespace QuartzDemo.WebReference {
         
         /// <remarks/>
         public event taskDetailCompletedEventHandler taskDetailCompleted;
+        
+        /// <remarks/>
+        public event taskAttachmentsDownloadCompletedEventHandler taskAttachmentsDownloadCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -244,6 +249,43 @@ namespace QuartzDemo.WebReference {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/taskAttachmentsDownload", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string taskAttachmentsDownload(string qjc_lims_test, string detialid, string type, int i, int j) {
+            object[] results = this.Invoke("taskAttachmentsDownload", new object[] {
+                        qjc_lims_test,
+                        detialid,
+                        type,
+                        i,
+                        j});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void taskAttachmentsDownloadAsync(string qjc_lims_test, string detialid, string type, int i, int j) {
+            this.taskAttachmentsDownloadAsync(qjc_lims_test, detialid, type, i, j, null);
+        }
+        
+        /// <remarks/>
+        public void taskAttachmentsDownloadAsync(string qjc_lims_test, string detialid, string type, int i, int j, object userState) {
+            if ((this.taskAttachmentsDownloadOperationCompleted == null)) {
+                this.taskAttachmentsDownloadOperationCompleted = new System.Threading.SendOrPostCallback(this.OntaskAttachmentsDownloadOperationCompleted);
+            }
+            this.InvokeAsync("taskAttachmentsDownload", new object[] {
+                        qjc_lims_test,
+                        detialid,
+                        type,
+                        i,
+                        j}, this.taskAttachmentsDownloadOperationCompleted, userState);
+        }
+        
+        private void OntaskAttachmentsDownloadOperationCompleted(object arg) {
+            if ((this.taskAttachmentsDownloadCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.taskAttachmentsDownloadCompleted(this, new taskAttachmentsDownloadCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -379,6 +421,32 @@ namespace QuartzDemo.WebReference {
         private object[] results;
         
         internal taskDetailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void taskAttachmentsDownloadCompletedEventHandler(object sender, taskAttachmentsDownloadCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class taskAttachmentsDownloadCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal taskAttachmentsDownloadCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

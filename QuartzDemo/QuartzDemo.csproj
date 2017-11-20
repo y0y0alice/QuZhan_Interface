@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="QuartzJobs\BankCardJob.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IAttachment.cs" />
+    <Compile Include="QuartzJobs\entity\B_OA_ILW.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IReceiveTask.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_ISuggestion.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_ITaskDetail.cs" />
@@ -131,6 +132,7 @@
     <Content Include="QuartzJobs\taskDetail.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="QuartzJobs\unReceiveDetail.xml" />
     <Content Include="quartz_jobs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

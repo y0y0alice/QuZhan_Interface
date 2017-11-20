@@ -72,6 +72,24 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="taskAttachmentsDownload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="qjc_lims_test" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="detialid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="i" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="j" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="taskAttachmentsDownloadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="taskAttachmentsDownloadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -104,6 +122,12 @@
   <wsdl:message name="taskDetailSoapOut">
     <wsdl:part name="parameters" element="tns:taskDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="taskAttachmentsDownloadSoapIn">
+    <wsdl:part name="parameters" element="tns:taskAttachmentsDownload" />
+  </wsdl:message>
+  <wsdl:message name="taskAttachmentsDownloadSoapOut">
+    <wsdl:part name="parameters" element="tns:taskAttachmentsDownloadResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -128,6 +152,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">收文详情</wsdl:documentation>
       <wsdl:input message="tns:taskDetailSoapIn" />
       <wsdl:output message="tns:taskDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="taskAttachmentsDownload">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">附件下载</wsdl:documentation>
+      <wsdl:input message="tns:taskAttachmentsDownloadSoapIn" />
+      <wsdl:output message="tns:taskAttachmentsDownloadSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -177,6 +206,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="taskAttachmentsDownload">
+      <soap:operation soapAction="http://tempuri.org/taskAttachmentsDownload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -218,6 +256,15 @@
     </wsdl:operation>
     <wsdl:operation name="taskDetail">
       <soap12:operation soapAction="http://tempuri.org/taskDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taskAttachmentsDownload">
+      <soap12:operation soapAction="http://tempuri.org/taskAttachmentsDownload" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

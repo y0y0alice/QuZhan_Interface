@@ -42,19 +42,18 @@ namespace QuartzDemo.QuartzJobs
             IList<B_OA_IReceiveTask> receiveList = new List<B_OA_IReceiveTask>();
 
             //用于本地测试
-            //XmlDocument xmlDocument = new XmlDocument();
-            //var dir = Directory.GetCurrentDirectory();
-            //string serverpath = dir + "\\unReceiveTasks.xml";
-            //xmlDocument.Load(serverpath);
-            //XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
+            XmlDocument xmlDocument = new XmlDocument();
+            var dir = Directory.GetCurrentDirectory();
+            string serverpath = dir + "\\unReceiveTasks.xml";
+            xmlDocument.Load(serverpath);
+            XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
 
             //wsdl发布测试
-
-            string returnXml = service.unReceiveTasks("qjc_lims_test");
-            _logger.InfoFormat("接口连接成功!");
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml(returnXml);
-            XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
+            //string returnXml = service.unReceiveTasks("qjc_lims_test");
+            //_logger.InfoFormat("接口连接成功!");
+            //XmlDocument xmlDocument = new XmlDocument();
+            //xmlDocument.LoadXml(returnXml);
+            //XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
 
             foreach (XmlNode detail in xmlNodeList)
             {
@@ -77,10 +76,26 @@ namespace QuartzDemo.QuartzJobs
                     if (Utility.Database.QueryObject(receive, tran) == null)
                     {
                         Utility.Database.Insert(receive, tran);
-                        _logger.InfoFormat("成功插入待收收文一条数据！");
+                        _logger.InfoFormat("成功插入待收任务据！");
                     };
                     //添加或者修改通知公告详细内容
-                    taskDetail("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
+                    //if (receive.SWLX == "TZGG")
+                    //{
+                    //    TaskDetail_TZGG("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
+                    //}
+                    //else if (receive.SWLX == "LW") {
+                    //    TaskDetail_LW("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
+                    //}
+
+                    //收文测试
+                    if (receive.SWLX == "LW")
+                    {
+                        TaskDetail_LW("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
+                    }
+                    else
+                    {
+                        TaskDetail_TZGG("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
+                    }
                     Utility.Database.Commit(tran);
                 }
                 catch (Exception ex)
@@ -92,7 +107,24 @@ namespace QuartzDemo.QuartzJobs
             }
         }
 
-        public void taskDetail(string xtbh, string swbh, string swlx, IDbTransaction tran)
+        public void TaskDetail_LW(string xtbh, string swbh, string swlx, IDbTransaction tran)
+        {
+            string xmlString = service.taskDetail(xtbh, swbh, swlx);
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xmlString);
+            XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
+            //处理意见
+            //  XmlNodeList suggestXmls = xmlNodeList[0].SelectSingleNode("CLYJS").SelectNodes("CLYJ");
+            //  InserOrUpdateSuggestion(suggestXmls, tran);
+            //收文详情
+            XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
+            InserOrUpdateDetail_LW(receiveXml, swbh, swlx, tran);
+            //附件详情
+            XmlNodeList attachmentXmls = xmlNodeList[0].SelectSingleNode("FJXXS").SelectNodes("FJXX");
+            InserOrUpdateAttachment(attachmentXmls, swbh, swlx, tran);
+        }
+
+        public void TaskDetail_TZGG(string xtbh, string swbh, string swlx, IDbTransaction tran)
         {
             //本地测试
             //XmlDocument xmlDocument = new XmlDocument();
@@ -103,15 +135,15 @@ namespace QuartzDemo.QuartzJobs
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xmlString);
             XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
-            //文档详情
-            XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
-            InserOrUpdateDetail(receiveXml, swbh, swlx, tran);
             //附件详情
             XmlNodeList attachmentXmls = xmlNodeList[0].SelectSingleNode("FJXXS").SelectNodes("FJXX");
             InserOrUpdateAttachment(attachmentXmls, swbh, swlx, tran);
             //处理意见
-            XmlNodeList suggestXmls = xmlNodeList[0].SelectSingleNode("CLYJS").SelectNodes("CLYJ");
-            InserOrUpdateSuggestion(suggestXmls, tran);
+            //   XmlNodeList suggestXmls = xmlNodeList[0].SelectSingleNode("CLYJS").SelectNodes("CLYJ");
+            //   InserOrUpdateSuggestion(suggestXmls, tran);
+            //文档详情
+            XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
+            InserOrUpdateDetail_TZGG(receiveXml, swbh, swlx, tran);
         }
 
         public void InserOrUpdateSuggestion(XmlNodeList suggestionXmls, IDbTransaction tran)
@@ -164,6 +196,8 @@ namespace QuartzDemo.QuartzJobs
                     Utility.Database.Update(attachment, tran);
                     _logger.InfoFormat("成功修改附件表数据！");
                 }
+                //文件复制到相应文件夹
+                service.taskAttachmentsDownload("qjc_lims_test", "TZGG", attachment.WDBH, 0, 100);
             }
         }
 
@@ -175,11 +209,11 @@ namespace QuartzDemo.QuartzJobs
         /// <param name="swbh">收文编号</param>
         /// <param name="swlx">收文类型</param>
         /// <param name="tran">事务</param>
-        public void InserOrUpdateDetail(XmlNode receiveXml, string swbh, string swlx, IDbTransaction tran)
+        public void InserOrUpdateDetail_TZGG(XmlNode receiveXml, string swbh, string swlx, IDbTransaction tran)
         {
             string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(receiveXml);
-            JBXXModel JBXXModel = JsonConvert.DeserializeObject<JBXXModel>(json);
-            B_OA_ITaskDetail taskDetail = JBXXModel.JBXX;
+            TZGGModel TZGGModel = JsonConvert.DeserializeObject<TZGGModel>(json);
+            B_OA_ITaskDetail taskDetail = TZGGModel.JBXX;
             taskDetail.YWBH = swbh;
             taskDetail.SWLX = swlx;
             taskDetail.Condition.Add("YWBH =" + taskDetail.YWBH);
@@ -187,12 +221,32 @@ namespace QuartzDemo.QuartzJobs
             if (Utility.Database.QueryObject(taskDetail, tran) == null)
             {
                 Utility.Database.Insert(taskDetail, tran);
-                _logger.InfoFormat("成功插入详情数据！");
+                _logger.InfoFormat("成功插入通知公告！");
             }
             else
             {
                 Utility.Database.Update(taskDetail, tran);
-                _logger.InfoFormat("成功修改详情一条数据！");
+                _logger.InfoFormat("成功修改通知公告！");
+            }
+        }
+
+        public void InserOrUpdateDetail_LW(XmlNode receiveXml, string swbh, string swlx, IDbTransaction tran)
+        {
+            string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(receiveXml);
+            LWModel lwModel = JsonConvert.DeserializeObject<LWModel>(json);
+            B_OA_ILW lw = lwModel.JBXX;
+            lw.YWBH = swbh;
+            lw.Condition.Add("YWBH =" + lw.YWBH);
+            if (Utility.Database.QueryObject(lw, tran) == null)
+            {
+                Utility.Database.Insert(lw, tran);
+                _logger.InfoFormat("成功插入收文数据！");
+            }
+            else
+            {
+                // lw.Condition.Add("YWBH =" + lw.YWBH);
+                Utility.Database.Update(lw, tran);
+                _logger.InfoFormat("成功修改收文数据！");
             }
         }
 
@@ -216,9 +270,14 @@ namespace QuartzDemo.QuartzJobs
             public B_OA_IAttachment FJXX;
         }
 
-        public class JBXXModel
+        public class TZGGModel
         {
             public B_OA_ITaskDetail JBXX;
+        }
+
+        public class LWModel
+        {
+            public B_OA_ILW JBXX;
         }
     }
 }
