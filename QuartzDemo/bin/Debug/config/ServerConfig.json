@@ -8,5 +8,5 @@
   "TempDir": "c:\\NHEPB\\TempDir\\",
   "FileDir": "c:\\NHEPB\\FileDir\\",
   "FileModelDir": "officeFileModel\\",
-  "mydata": "Data Source=.;Initial Catalog=LLL;User ID=sa;Password=1;pooling=true;min pool size = 1;max pool size=3"
+  "mydata": "Data Source=10.45.100.150;Initial Catalog=LimsEQA_Test;User ID=sa;Password=SKYLAND.gz.cn;Integrated Security=false;Pooling=true;Max Pool Size = 5;Min Pool Size=0;"
 }

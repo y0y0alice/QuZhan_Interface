@@ -67,7 +67,7 @@
         <job-name>LwJob</job-name>
         <job-group>Lw</job-group>
         <start-time>2015-01-22T00:00:00+08:00</start-time>
-        <cron-expression>0 */2 * * * ?</cron-expression>
+        <cron-expression>0 */5 * * * ?</cron-expression>
       </cron>
     </trigger>
 

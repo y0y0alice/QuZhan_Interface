@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://localhost/zhbggx/services/TaskWorkflowService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://localhost/zhbggx/services/TaskWorkflowService" targetNamespace="http://localhost/zhbggx/services/TaskWorkflowService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="taskAttachmentsDownloadRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
+    <wsdl:part name="fjbh" type="xsd:string" />
+    <wsdl:part name="startpost" type="xsd:long" />
+    <wsdl:part name="length" type="xsd:long" />
+  </wsdl:message>
+  <wsdl:message name="unReceiveTasksRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="receiveTasksResponse">
+    <wsdl:part name="receiveTasksReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="submitTaskRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="xml" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskRollbackRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="swbh" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="submitTaskResponse">
+    <wsdl:part name="submitTaskReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskDetailResponse">
+    <wsdl:part name="taskDetailReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="startWorkflowSubmitRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="xml" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="startWorkFlowResponse">
+    <wsdl:part name="startWorkFlowReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskRecevieConfirmResponse">
+    <wsdl:part name="taskRecevieConfirmReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="submitTaskUploadAttachmentsRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="fjInfo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="startWorkflowSubmitResponse">
+    <wsdl:part name="startWorkflowSubmitReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskDetailRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="swbh" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskDealResponse">
+    <wsdl:part name="taskDealReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskDealRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="swbh" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="startWorfFlowUploadAttachmentsRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="fjInfo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="startWorkFlowRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="xml" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="unReceiveTasksResponse">
+    <wsdl:part name="unReceiveTasksReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="testRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="startWorfFlowUploadAttachmentsResponse">
+    <wsdl:part name="startWorfFlowUploadAttachmentsReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="submitTaskUploadAttachmentsResponse">
+    <wsdl:part name="submitTaskUploadAttachmentsReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskBackupRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="swbh" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskRecevieConfirmRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="swbh" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskBackupResponse">
+    <wsdl:part name="taskBackupReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskAttachmentsDownloadResponse">
+    <wsdl:part name="taskAttachmentsDownloadReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="receiveTasksRequest">
+    <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="startTime" type="xsd:string" />
+    <wsdl:part name="endTime" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="taskRollbackResponse">
+    <wsdl:part name="taskRollbackReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="testResponse">
+    <wsdl:part name="testReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="TaskWorkflowService">
+    <wsdl:operation name="test" parameterOrder="xtbh">
+      <wsdl:input name="testRequest" message="impl:testRequest" />
+      <wsdl:output name="testResponse" message="impl:testResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="unReceiveTasks" parameterOrder="xtbh">
+      <wsdl:input name="unReceiveTasksRequest" message="impl:unReceiveTasksRequest" />
+      <wsdl:output name="unReceiveTasksResponse" message="impl:unReceiveTasksResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="taskDetail" parameterOrder="xtbh swbh swlx">
+      <wsdl:input name="taskDetailRequest" message="impl:taskDetailRequest" />
+      <wsdl:output name="taskDetailResponse" message="impl:taskDetailResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="taskAttachmentsDownload" parameterOrder="xtbh swlx fjbh startpost length">
+      <wsdl:input name="taskAttachmentsDownloadRequest" message="impl:taskAttachmentsDownloadRequest" />
+      <wsdl:output name="taskAttachmentsDownloadResponse" message="impl:taskAttachmentsDownloadResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="taskRecevieConfirm" parameterOrder="xtbh swbh swlx">
+      <wsdl:input name="taskRecevieConfirmRequest" message="impl:taskRecevieConfirmRequest" />
+      <wsdl:output name="taskRecevieConfirmResponse" message="impl:taskRecevieConfirmResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="taskRollback" parameterOrder="xtbh swbh swlx">
+      <wsdl:input name="taskRollbackRequest" message="impl:taskRollbackRequest" />
+      <wsdl:output name="taskRollbackResponse" message="impl:taskRollbackResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="taskBackup" parameterOrder="xtbh swbh swlx">
+      <wsdl:input name="taskBackupRequest" message="impl:taskBackupRequest" />
+      <wsdl:output name="taskBackupResponse" message="impl:taskBackupResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="taskDeal" parameterOrder="xtbh swbh swlx">
+      <wsdl:input name="taskDealRequest" message="impl:taskDealRequest" />
+      <wsdl:output name="taskDealResponse" message="impl:taskDealResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="receiveTasks" parameterOrder="xtbh startTime endTime">
+      <wsdl:input name="receiveTasksRequest" message="impl:receiveTasksRequest" />
+      <wsdl:output name="receiveTasksResponse" message="impl:receiveTasksResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="submitTaskUploadAttachments" parameterOrder="xtbh xml fjInfo">
+      <wsdl:input name="submitTaskUploadAttachmentsRequest" message="impl:submitTaskUploadAttachmentsRequest" />
+      <wsdl:output name="submitTaskUploadAttachmentsResponse" message="impl:submitTaskUploadAttachmentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="submitTask" parameterOrder="xtbh xml">
+      <wsdl:input name="submitTaskRequest" message="impl:submitTaskRequest" />
+      <wsdl:output name="submitTaskResponse" message="impl:submitTaskResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="startWorkFlow" parameterOrder="xtbh xml">
+      <wsdl:input name="startWorkFlowRequest" message="impl:startWorkFlowRequest" />
+      <wsdl:output name="startWorkFlowResponse" message="impl:startWorkFlowResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="startWorfFlowUploadAttachments" parameterOrder="xtbh xml fjInfo">
+      <wsdl:input name="startWorfFlowUploadAttachmentsRequest" message="impl:startWorfFlowUploadAttachmentsRequest" />
+      <wsdl:output name="startWorfFlowUploadAttachmentsResponse" message="impl:startWorfFlowUploadAttachmentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="startWorkflowSubmit" parameterOrder="xtbh xml">
+      <wsdl:input name="startWorkflowSubmitRequest" message="impl:startWorkflowSubmitRequest" />
+      <wsdl:output name="startWorkflowSubmitResponse" message="impl:startWorkflowSubmitResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TaskWorkflowServiceVSSoapBinding" type="impl:TaskWorkflowService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="test">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="testRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="testResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unReceiveTasks">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="unReceiveTasksRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="unReceiveTasksResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taskDetail">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="taskDetailRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="taskDetailResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taskAttachmentsDownload">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="taskAttachmentsDownloadRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="taskAttachmentsDownloadResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taskRecevieConfirm">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="taskRecevieConfirmRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="taskRecevieConfirmResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taskRollback">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="taskRollbackRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="taskRollbackResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taskBackup">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="taskBackupRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="taskBackupResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="taskDeal">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="taskDealRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="taskDealResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="receiveTasks">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="receiveTasksRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="receiveTasksResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitTaskUploadAttachments">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="submitTaskUploadAttachmentsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="submitTaskUploadAttachmentsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitTask">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="submitTaskRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="submitTaskResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startWorkFlow">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="startWorkFlowRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="startWorkFlowResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startWorfFlowUploadAttachments">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="startWorfFlowUploadAttachmentsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="startWorfFlowUploadAttachmentsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startWorkflowSubmit">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="startWorkflowSubmitRequest">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="startWorkflowSubmitResponse">
+        <wsdlsoap:body use="encoded" namespace="http://localhost/zhbggx/services/TaskWorkflowService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaskWorkflowServiceService">
+    <wsdl:port name="TaskWorkflowServiceVS" binding="impl:TaskWorkflowServiceVSSoapBinding">
+      <wsdlsoap:address location="http://10.45.100.204/plat/services/TaskWorkflowServiceVS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

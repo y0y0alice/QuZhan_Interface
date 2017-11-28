@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Quartz;
 using QuartzDemo.QuartzJobs.entity;
 using QuartzDemo.WebReference;
+using QuartzDemo.WebReference2;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,7 +34,7 @@ namespace QuartzDemo.QuartzJobs
             }
         }
 
-        WebService1 service = new WebService1();
+        TaskWorkflowServiceService service = new TaskWorkflowServiceService();
         /// <summary>
         /// 待收文任务列表
         /// </summary>
@@ -42,18 +43,18 @@ namespace QuartzDemo.QuartzJobs
             IList<B_OA_IReceiveTask> receiveList = new List<B_OA_IReceiveTask>();
 
             //用于本地测试
-            XmlDocument xmlDocument = new XmlDocument();
-            var dir = Directory.GetCurrentDirectory();
-            string serverpath = dir + "\\unReceiveTasks.xml";
-            xmlDocument.Load(serverpath);
-            XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
+            //XmlDocument xmlDocument = new XmlDocument();
+            //var dir = Directory.GetCurrentDirectory();
+            //string serverpath = dir + "\\unReceiveTasks.xml";
+            //xmlDocument.Load(serverpath);
+            //XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
 
             //wsdl发布测试
-            //string returnXml = service.unReceiveTasks("qjc_lims_test");
-            //_logger.InfoFormat("接口连接成功!");
-            //XmlDocument xmlDocument = new XmlDocument();
-            //xmlDocument.LoadXml(returnXml);
-            //XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
+            string returnXml = service.unReceiveTasks("qjc_lims_test");
+            _logger.InfoFormat("接口连接成功!");
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(returnXml);
+            XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
 
             foreach (XmlNode detail in xmlNodeList)
             {
@@ -87,7 +88,7 @@ namespace QuartzDemo.QuartzJobs
                     //    TaskDetail_LW("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
                     //}
 
-                    //收文测试
+                    //收文
                     if (receive.SWLX == "LW")
                     {
                         TaskDetail_LW("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
@@ -96,6 +97,7 @@ namespace QuartzDemo.QuartzJobs
                     {
                         TaskDetail_TZGG("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
                     }
+                    var taskRecevieConfirm = service.taskRecevieConfirm("qjc_lims_test", receive.YWBH, receive.SWLX);
                     Utility.Database.Commit(tran);
                 }
                 catch (Exception ex)
