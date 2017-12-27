@@ -79,21 +79,16 @@ namespace QuartzDemo.QuartzJobs
                         Utility.Database.Insert(receive, tran);
                         _logger.InfoFormat("成功插入待收任务据！");
                     };
-                    //添加或者修改通知公告详细内容
-                    //if (receive.SWLX == "TZGG")
-                    //{
-                    //    TaskDetail_TZGG("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
-                    //}
-                    //else if (receive.SWLX == "LW") {
-                    //    TaskDetail_LW("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
-                    //}
 
-                    //收文
-                    if (receive.SWLX == "LW")
+                    if (receive.SWLX == "LW")//来文
                     {
                         TaskDetail_LW("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
                     }
-                    else
+                    else if (receive.SWLX == "NBYJ")//内部邮件
+                    {
+                        TaskDetail_Mail("qjc_lims_test", receive.YWBH, receive.BZ, receive.SWLX, tran);
+                    }
+                    else if (receive.SWLX == "TZGG")//通知公告
                     {
                         TaskDetail_TZGG("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
                     }
@@ -106,6 +101,42 @@ namespace QuartzDemo.QuartzJobs
                     _logger.InfoFormat("业务编号:" + detail.SelectSingleNode("YWBH").InnerText + " 收文标题:" + detail.SelectSingleNode("SWBT").InnerText + "插入失败！\n" +
                         "失败原因" + ex);
                 }
+            }
+        }
+
+        public void TaskDetail_Mail(string xtbh, string swbh, string bz,string swlx, IDbTransaction tran)
+        {
+            string xmlString = service.taskDetail(xtbh, swbh, swlx);
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xmlString);
+            XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
+            //邮件详情
+            XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
+            InserOrUpdateDetail_Mail(receiveXml, swbh, bz, swlx, tran);
+            //附件详情
+            XmlNodeList attachmentXmls = xmlNodeList[0].SelectSingleNode("FJXXS").SelectNodes("FJXX");
+            InserOrUpdateAttachment(attachmentXmls, swbh, swlx, tran);
+        }
+
+        public void InserOrUpdateDetail_Mail(XmlNode receiveXml, string swbh,string bz, string swlx, IDbTransaction tran)
+        {
+            string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(receiveXml);
+            MailModel mailModel = JsonConvert.DeserializeObject<MailModel>(json);
+            B_OA_IEmail maildetail = mailModel.JBXX;
+            maildetail.BZ = bz;
+            maildetail.YWBH = swbh;
+            maildetail.SWLX = swlx;
+            maildetail.Condition.Add("YWBH =" + maildetail.YWBH);
+            maildetail.Condition.Add("SWLX =" + maildetail.SWLX);
+            if (Utility.Database.QueryObject(maildetail, tran) == null)
+            {
+                Utility.Database.Insert(maildetail, tran);
+                _logger.InfoFormat("成功插入邮件！");
+            }
+            else
+            {
+                Utility.Database.Update(maildetail, tran);
+                _logger.InfoFormat("成功修改邮件！");
             }
         }
 
@@ -270,6 +301,11 @@ namespace QuartzDemo.QuartzJobs
         public class AttachmentModel
         {
             public B_OA_IAttachment FJXX;
+        }
+
+        public class MailModel
+        {
+            public B_OA_IEmail JBXX;
         }
 
         public class TZGGModel
