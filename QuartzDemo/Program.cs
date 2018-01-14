@@ -20,9 +20,9 @@ namespace QuartzDemo
 
                 x.Service<ServiceRunner>();
 
-                x.SetDescription("QuartzDemo服务描述");
-                x.SetDisplayName("QuartzDemo服务显示名称");
-                x.SetServiceName("QuartzDemo服务名称");
+                x.SetDescription("区站接口服务描述");
+                x.SetDisplayName("区站接口");
+                x.SetServiceName("区站接口服务名称");
 
                 x.EnablePauseAndContinue();
             });

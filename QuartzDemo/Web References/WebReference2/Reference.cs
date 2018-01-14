@@ -170,24 +170,26 @@ namespace QuartzDemo.WebReference2 {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapRpcMethodAttribute("", RequestNamespace="http://localhost/zhbggx/services/TaskWorkflowService", ResponseNamespace="http://localhost/zhbggx/services/TaskWorkflowService")]
         [return: System.Xml.Serialization.SoapElementAttribute("unReceiveTasksReturn")]
-        public string unReceiveTasks(string xtbh) {
+        public string unReceiveTasks(string xtbh, string swlx) {
             object[] results = this.Invoke("unReceiveTasks", new object[] {
-                        xtbh});
+                        xtbh,
+                        swlx});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void unReceiveTasksAsync(string xtbh) {
-            this.unReceiveTasksAsync(xtbh, null);
+        public void unReceiveTasksAsync(string xtbh, string swlx) {
+            this.unReceiveTasksAsync(xtbh, swlx, null);
         }
         
         /// <remarks/>
-        public void unReceiveTasksAsync(string xtbh, object userState) {
+        public void unReceiveTasksAsync(string xtbh, string swlx, object userState) {
             if ((this.unReceiveTasksOperationCompleted == null)) {
                 this.unReceiveTasksOperationCompleted = new System.Threading.SendOrPostCallback(this.OnunReceiveTasksOperationCompleted);
             }
             this.InvokeAsync("unReceiveTasks", new object[] {
-                        xtbh}, this.unReceiveTasksOperationCompleted, userState);
+                        xtbh,
+                        swlx}, this.unReceiveTasksOperationCompleted, userState);
         }
         
         private void OnunReceiveTasksOperationCompleted(object arg) {
@@ -408,28 +410,30 @@ namespace QuartzDemo.WebReference2 {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapRpcMethodAttribute("", RequestNamespace="http://localhost/zhbggx/services/TaskWorkflowService", ResponseNamespace="http://localhost/zhbggx/services/TaskWorkflowService")]
         [return: System.Xml.Serialization.SoapElementAttribute("receiveTasksReturn")]
-        public string receiveTasks(string xtbh, string startTime, string endTime) {
+        public string receiveTasks(string xtbh, string startTime, string endTime, string swlx) {
             object[] results = this.Invoke("receiveTasks", new object[] {
                         xtbh,
                         startTime,
-                        endTime});
+                        endTime,
+                        swlx});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void receiveTasksAsync(string xtbh, string startTime, string endTime) {
-            this.receiveTasksAsync(xtbh, startTime, endTime, null);
+        public void receiveTasksAsync(string xtbh, string startTime, string endTime, string swlx) {
+            this.receiveTasksAsync(xtbh, startTime, endTime, swlx, null);
         }
         
         /// <remarks/>
-        public void receiveTasksAsync(string xtbh, string startTime, string endTime, object userState) {
+        public void receiveTasksAsync(string xtbh, string startTime, string endTime, string swlx, object userState) {
             if ((this.receiveTasksOperationCompleted == null)) {
                 this.receiveTasksOperationCompleted = new System.Threading.SendOrPostCallback(this.OnreceiveTasksOperationCompleted);
             }
             this.InvokeAsync("receiveTasks", new object[] {
                         xtbh,
                         startTime,
-                        endTime}, this.receiveTasksOperationCompleted, userState);
+                        endTime,
+                        swlx}, this.receiveTasksOperationCompleted, userState);
         }
         
         private void OnreceiveTasksOperationCompleted(object arg) {

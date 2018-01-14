@@ -11,7 +11,7 @@ namespace QuartzDemo.QuartzJobs.entity
     [DataTableInfo("B_OA_IEmail", "YWBH")]
     public class B_OA_IEmail : QueryInfo
     {
-        
+
         [DataField("YWBH", "B_OA_IEmail")]
         public string YWBH { get; set; }
 
@@ -20,7 +20,7 @@ namespace QuartzDemo.QuartzJobs.entity
 
         [DataField("SWLX", "B_OA_IEmail")]
         public string SWLX { get; set; }
-        
+
         [DataField("SWBT", "B_OA_IEmail")]
         public string SWBT { get; set; }
 
@@ -35,6 +35,14 @@ namespace QuartzDemo.QuartzJobs.entity
 
         [DataField("BZTEXT", "B_OA_IEmail")]
         public string BZTEXT { get; set; }
-        
+
+        [DataField("BH", "B_OA_IEmail")]
+        public string BH { get; set; }
+
+        [DataField("USERID", "B_OA_IEmail")]
+        public string USERID { get; set; }
+
+        [DataField("isPersonal", "B_OA_IEmail")]
+        public string isPersonal { get; set; }
     }
 }

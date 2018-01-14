@@ -10,6 +10,7 @@
   </wsdl:message>
   <wsdl:message name="unReceiveTasksRequest">
     <wsdl:part name="xtbh" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="receiveTasksResponse">
     <wsdl:part name="receiveTasksReturn" type="xsd:string" />
@@ -101,6 +102,7 @@
     <wsdl:part name="xtbh" type="xsd:string" />
     <wsdl:part name="startTime" type="xsd:string" />
     <wsdl:part name="endTime" type="xsd:string" />
+    <wsdl:part name="swlx" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="taskRollbackResponse">
     <wsdl:part name="taskRollbackReturn" type="xsd:string" />
@@ -113,7 +115,7 @@
       <wsdl:input name="testRequest" message="impl:testRequest" />
       <wsdl:output name="testResponse" message="impl:testResponse" />
     </wsdl:operation>
-    <wsdl:operation name="unReceiveTasks" parameterOrder="xtbh">
+    <wsdl:operation name="unReceiveTasks" parameterOrder="xtbh swlx">
       <wsdl:input name="unReceiveTasksRequest" message="impl:unReceiveTasksRequest" />
       <wsdl:output name="unReceiveTasksResponse" message="impl:unReceiveTasksResponse" />
     </wsdl:operation>
@@ -141,7 +143,7 @@
       <wsdl:input name="taskDealRequest" message="impl:taskDealRequest" />
       <wsdl:output name="taskDealResponse" message="impl:taskDealResponse" />
     </wsdl:operation>
-    <wsdl:operation name="receiveTasks" parameterOrder="xtbh startTime endTime">
+    <wsdl:operation name="receiveTasks" parameterOrder="xtbh startTime endTime swlx">
       <wsdl:input name="receiveTasksRequest" message="impl:receiveTasksRequest" />
       <wsdl:output name="receiveTasksResponse" message="impl:receiveTasksResponse" />
     </wsdl:operation>
