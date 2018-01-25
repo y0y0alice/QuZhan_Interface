@@ -89,6 +89,7 @@
     <Compile Include="QuartzJobs\BankCardJob.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IAttachment.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IEmail.cs" />
+    <Compile Include="QuartzJobs\entity\B_OA_IFW.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_ILW.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_IReceiveTask.cs" />
     <Compile Include="QuartzJobs\entity\B_OA_ISuggestion.cs" />
@@ -125,6 +126,7 @@
     </None>
     <None Include="quartz.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web References\WebReference2\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

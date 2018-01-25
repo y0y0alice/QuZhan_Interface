@@ -24,7 +24,8 @@ namespace QuartzDemo.QuartzJobs
         {
             try
             {
-                loadTasks();
+                 loadTasks();
+                //reloadFW();
             }
             catch (Exception ex)
             {
@@ -42,18 +43,76 @@ namespace QuartzDemo.QuartzJobs
             }
         }
 
+        public void reloadFW()
+        {
+            B_OA_IReceiveTask receive = new B_OA_IReceiveTask();
+            receive.Condition.Add("SWLX =FW ");
+            List<B_OA_IReceiveTask> listReceive = Utility.Database.QueryList(receive);
+            foreach (B_OA_IReceiveTask re in listReceive)
+            {
+                TaskDetail_FW("qjc_lims_test", re.YWBH, re.SWLX, null);
+            }
+        }
+
         TaskWorkflowServiceService service = new TaskWorkflowServiceService();
 
         public void loadTasks()
         {
             //接收所有收文
-               unReceiveTasks("LW");
+            unReceiveTasks("LW");
             _logger.InfoFormat("待收文任务列表获取成功");
-               unReceiveTasks("TZGG");
+            unReceiveTasks("TZGG");
             _logger.InfoFormat("通知公告任务列表获取成功");
             unReceiveTasks("NBYJ");
             _logger.InfoFormat("内部邮件任务列表获取成功");
+            unReceiveTasks("FW");
+            _logger.InfoFormat("发文任务列表获取成功");
         }
+
+        public void TaskDetail_FW(string xtbh, string swbh, string swlx, IDbTransaction tran)
+        {
+            string xmlString = service.taskDetail(xtbh, swbh, swlx);
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xmlString);
+            XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("SW").SelectSingleNode("SWINFOS").ChildNodes;
+            //附件详情
+            XmlNodeList attachmentXmls = xmlNodeList[0].SelectSingleNode("FJXXS").SelectNodes("FJXX");
+            InserOrUpdateAttachment(attachmentXmls, swbh, swlx, tran);
+            //文档详情
+            XmlNode receiveXml = xmlNodeList[0].SelectSingleNode("JBXX");
+            InserOrUpdateDetail_FW(receiveXml, swbh, swlx, tran);
+        }
+
+        /// <summary>
+        /// 插入或者修改发文
+        /// </summary>
+        /// <param name="receiveXml">xml数据</param>
+        /// <param name="xtbh">系统编号</param>
+        /// <param name="swbh">收文编号</param>
+        /// <param name="swlx">收文类型</param>
+        /// <param name="tran">事务</param>
+        public void InserOrUpdateDetail_FW(XmlNode receiveXml, string swbh, string swlx, IDbTransaction tran)
+        {
+            string json = Newtonsoft.Json.JsonConvert.SerializeXmlNode(receiveXml);
+            FWModel fwModel = JsonConvert.DeserializeObject<FWModel>(json);
+            B_OA_IFW taskDetail = fwModel.JBXX;
+            taskDetail.YWBH = swbh;
+            taskDetail.SWLX = swlx;
+            taskDetail.Condition.Add("YWBH =" + taskDetail.YWBH);
+            taskDetail.Condition.Add("SWLX =" + taskDetail.SWLX);
+            if (Utility.Database.QueryObject(taskDetail, tran) == null)
+            {
+                taskDetail.receiveTime = DateTime.Now;
+                Utility.Database.Insert(taskDetail, tran);
+                _logger.InfoFormat("成功插入发文成功！");
+            }
+            else
+                taskDetail.receiveTime = DateTime.Now;            {
+                Utility.Database.Update(taskDetail, tran);
+                _logger.InfoFormat("成功修改发文成功！");
+            }
+        }
+
         /// <summary>
         /// 待收文任务列表
         /// </summary>
@@ -120,6 +179,10 @@ namespace QuartzDemo.QuartzJobs
                     else if (receive.SWLX == "TZGG")//通知公告
                     {
                         TaskDetail_TZGG("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
+                    }
+                    else if (receive.SWLX == "FW")//发文
+                    {
+                        TaskDetail_FW("qjc_lims_test", receive.YWBH, receive.SWLX, tran);
                     }
                     var taskRecevieConfirm = service.taskRecevieConfirm("qjc_lims_test", receive.YWBH, receive.SWLX);
                     Utility.Database.Commit(tran);
@@ -350,6 +413,11 @@ namespace QuartzDemo.QuartzJobs
         public class LWModel
         {
             public B_OA_ILW JBXX;
+        }
+
+        public class FWModel
+        {
+            public B_OA_IFW JBXX;
         }
     }
 }
