@@ -13,7 +13,7 @@ namespace QuartzDemo.QuartzJobs.entity
     {
         public B_OA_IReceiveTask() { }
         public B_OA_IReceiveTask(string userid, string ywbh, string swlx,
-            string swbt, string swlcbh,string swzt, string fkyj, string bz)
+            string swbt, string swlcbh, string swzt, string fkyj, string bz)
         {
             this.USERID = userid;
             this.YWBH = ywbh;
@@ -47,6 +47,10 @@ namespace QuartzDemo.QuartzJobs.entity
 
         [DataField("BZ", "B_OA_IReceiveTask")]
         public string BZ { get; set; }
+        
+        [DataField("receiveDate", "B_OA_IReceiveTask")]
+        public DateTime? receiveDate { get; set; }
+
 
     }
 }
